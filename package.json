@@ -1,0 +1,44 @@
+{
+    "name": "project-cli",
+    "description": "This tool will help you create projects based on your selected category and technology.",
+    "license": "MIT",
+    "author": {
+        "name": "Jean-Philippe Maquestiaux",
+        "email": "maquejp@gmail.com",
+        "url": "https://github.com/maquejp/multi-techs-utility"
+    },
+    "version": "1.0.0",
+    "type": "module",
+    "bin": {
+        "project-cli": "./cli.js"
+    },
+    "scripts": {
+        "start": "node cli.js",
+        "release:patch": "npm version patch && npm publish",
+        "release:minor": "npm version minor && npm publish",
+        "release:major": "npm version major && npm publish",
+        "test": "echo 'No tests yet' && exit 0",
+        "prepublishOnly": "npm test",
+        "postinstall": "chmod +x cli.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/maquejp/multi-techs-utility.git"
+    },
+    "homepage": "https://github.com/maquejp/multi-techs-utility#readme",
+    "bugs": {
+        "url": "https://github.com/maquejp/multi-techs-utility/issues"
+    },
+    "keywords": [
+        "cli",
+        "project-generator",
+        "frameworks",
+        "development",
+        "automation"
+    ],
+    "dependencies": {
+        "chalk": "^5.4.1",
+        "figlet": "^1.8.0",
+        "inquirer": "^8.2.0"
+    }
+}

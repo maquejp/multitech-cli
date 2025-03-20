@@ -1,0 +1,88 @@
+{
+    "folders": [
+        {
+            "path": "src/app/core",
+            "description": "# Core Module\n\nThis module contains core functionality that is loaded once when the application starts.\n\n## Purpose\n- Core application services\n- Application-wide models and interfaces\n- Core utilities and constants"
+        },
+        {
+            "path": "src/app/core/services",
+            "description": "# Core Services\n\nThis directory contains singleton services that are used throughout the application.\n\n## Purpose\n- Authentication service\n- HTTP service\n- Logging service\n- Other application-wide services"
+        },
+        {
+            "path": "src/app/core/guards",
+            "description": "# Guards\n\nThis directory contains route guards for protecting routes and controlling access.\n\n## Purpose\n- Authentication guards\n- Role-based access guards\n- Feature flags guards\n- Other route protection mechanisms"
+        },
+        {
+            "path": "src/app/core/interceptors",
+            "description": "# Interceptors\n\nThis directory contains HTTP interceptors for request/response manipulation.\n\n## Purpose\n- Authentication token interceptor\n- Error handling interceptor\n- Logging interceptor\n- Request/response transformation"
+        },
+        {
+            "path": "src/app/core/models",
+            "description": "# Core Models\n\nThis directory contains application-wide models and interfaces.\n\n## Purpose\n- Base interfaces\n- Common types\n- Shared models\n- Core DTOs"
+        },
+        {
+            "path": "src/app/shared",
+            "description": "# Shared Module\n\nThis module contains reusable components, directives, and pipes used across the application.\n\n## Purpose\n- Shared UI components\n- Common directives and pipes\n- Shared utilities\n- Reusable services"
+        },
+        {
+            "path": "src/app/shared/directives",
+            "description": "# Shared Directives\n\nThis directory contains custom directives used across the application.\n\n## Purpose\n- Custom structural directives\n- Attribute directives\n- Form validation directives\n- UI enhancement directives"
+        },
+        {
+            "path": "src/app/shared/components",
+            "description": "# Shared Components\n\nThis directory contains reusable UI components.\n\n## Purpose\n- Common UI elements\n- Form components\n- Layout components\n- Reusable widgets"
+        },
+        {
+            "path": "src/app/shared/pipes",
+            "description": "# Shared Pipes\n\nThis directory contains custom pipes for data transformation.\n\n## Purpose\n- Data formatting pipes\n- Filter pipes\n- Custom transformation pipes\n- Utility pipes"
+        },
+        {
+            "path": "src/app/features",
+            "description": "# Features Module\n\nThis directory contains feature modules that implement specific business functionality.\n\n## Purpose\n- Feature-specific components\n- Feature services\n- Feature routing\n- Feature-specific models"
+        },
+        {
+            "path": "src/app/layouts",
+            "description": "# Layouts Module\n\nThis directory contains layout components that define the application structure.\n\n## Purpose\n- Main layout components\n- Header and footer\n- Navigation\n- Responsive layouts"
+        },
+        {
+            "path": "src/app/store",
+            "description": "# Store Module\n\nThis directory contains state management related files.\n\n## Purpose\n- State definitions\n- Store configuration\n- Store utilities\n- State management setup"
+        },
+        {
+            "path": "src/app/store/actions",
+            "description": "# Store Actions\n\nThis directory contains state management actions.\n\n## Purpose\n- Action creators\n- Action types\n- Action interfaces\n- Action payloads"
+        },
+        {
+            "path": "src/app/store/reducers",
+            "description": "# Store Reducers\n\nThis directory contains state reducers.\n\n## Purpose\n- State reducers\n- Reducer interfaces\n- State slices\n- Reducer utilities"
+        },
+        {
+            "path": "src/app/store/effects",
+            "description": "# Store Effects\n\nThis directory contains side effects for state management.\n\n## Purpose\n- API calls\n- Side effects\n- Effect handlers\n- Effect utilities"
+        },
+        {
+            "path": "src/app/config",
+            "description": "# Configuration\n\nThis directory contains application configuration files.\n\n## Purpose\n- App configuration\n- Feature flags\n- Constants\n- Configuration utilities"
+        },
+        {
+            "path": "src/assets",
+            "description": "# Assets\n\nThis directory contains static assets used in the application.\n\n## Purpose\n- Images\n- Icons\n- Fonts\n- Other static files"
+        },
+        {
+            "path": "src/environments",
+            "description": "# Environments\n\nThis directory contains environment-specific configuration.\n\n## Purpose\n- Development settings\n- Production settings\n- Staging settings\n- Environment variables"
+        },
+        {
+            "path": "src/styles",
+            "description": "# Styles\n\nThis directory contains global styles and theme configurations.\n\n## Purpose\n- Global CSS\n- Theme variables\n- Style utilities\n- Custom styles"
+        },
+        {
+            "path": "src/testing",
+            "description": "# Testing\n\nThis directory contains test utilities and mock data.\n\n## Purpose\n- Test utilities\n- Mock services\n- Test helpers\n- Testing configurations"
+        },
+        {
+            "path": "src/i18n",
+            "description": "# Internationalization\n\nThis directory contains translation files and i18n configurations.\n\n## Purpose\n- Translation files\n- Language configurations\n- i18n utilities\n- Locale data"
+        }
+    ]
+}
