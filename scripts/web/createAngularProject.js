@@ -78,6 +78,16 @@ export class AppComponent {
     fs.writeFileSync(appComponentCssPath, '');
 }
 
+function updateIndexHtml(projectPath, projectName) {
+    const indexHtmlPath = path.join(projectPath, 'src/index.html');
+    let content = fs.readFileSync(indexHtmlPath, 'utf-8');
+
+    // Replace the title tag content
+    content = content.replace(/<title>.*?<\/title>/, `<title>${projectName}</title>`);
+
+    fs.writeFileSync(indexHtmlPath, content);
+}
+
 function displayNextSteps(projectName) {
     console.log('\nAngular project created successfully! 🎉');
     console.log(`\nNext steps:
@@ -88,14 +98,7 @@ function displayNextSteps(projectName) {
 export default async function createAngularProject({ projectName }) {
     try {
         // Get creation date
-        const creationDate = new Date().toLocaleString('en-GB', {
-            day: '2-digit',
-            month: 'short',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            hourCycle: 'h23'
-        }).replace(',', '');
+        const creationDate = new Date().toLocaleString();
 
         // 1. Initialize the project
         const projectPath = initializeProject(projectName);
@@ -109,7 +112,10 @@ export default async function createAngularProject({ projectName }) {
         // 4. Update app.component.ts with minimal implementation
         updateAppComponent(projectPath, projectName, creationDate);
 
-        // 5. Display next steps
+        // 5. Update index.html with project name
+        updateIndexHtml(projectPath, projectName);
+
+        // 6. Display next steps
         displayNextSteps(projectName);
     } catch (error) {
         console.error('Error creating Angular project:', error);
