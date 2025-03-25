@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 function initializeProject(name) {
   console.log('Creating new Astro project...');
   execSync(
-    `bun create astro@latest ${name} -- --template basics --typescript strict --git --install --no-hooks`,
+    `bun create astro@latest ${name} --template basics --install --git`,
     {
       stdio: 'inherit',
     }
@@ -21,12 +21,6 @@ function initializeProject(name) {
 function setupTailwindCSS(projectPath) {
   console.log('Setting up TailwindCSS...');
   execSync('bun astro add tailwind -y', {
-    cwd: projectPath,
-    stdio: 'inherit',
-  });
-
-  // Add React integration
-  execSync('bun astro add react -y', {
     cwd: projectPath,
     stdio: 'inherit',
   });
