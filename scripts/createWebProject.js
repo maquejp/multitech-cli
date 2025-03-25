@@ -1,9 +1,15 @@
+import { execSync } from 'child_process';
 import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import createAngularProject from './web/angular/createAngularProject.js';
 import createAstroProject from './web/astro/createAstroProject.js';
 import createReactProject from './web/react/createReactProject.js';
 import createVueProject from './web/vue/createVueProject.js';
 import createSvelteProject from './web/svelte/createSvelteProject.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const frameworks = {
     angular: {
@@ -41,9 +47,9 @@ function displayFrameworks() {
     });
 }
 
-function validateFramework(framework) {
-    if (!frameworks[framework]) {
-        console.error(`Invalid framework: ${framework}`);
+function validateFramework(technology) {
+    if (!frameworks[technology]) {
+        console.error(`Invalid framework: ${technology}`);
         displayFrameworks();
         process.exit(1);
     }
@@ -68,14 +74,14 @@ function validateProjectName(name) {
     }
 }
 
-export default async function createWebProject({ framework, projectName }) {
+export default async function createWebProject({ technology, projectName }) {
     try {
         // Validate inputs
-        validateFramework(framework);
+        validateFramework(technology);
         validateProjectName(projectName);
 
         // Create project
-        await frameworks[framework].create({ projectName });
+        await frameworks[technology].create({ projectName });
     } catch (error) {
         console.error('Error creating web project:', error);
         process.exit(1);
@@ -86,11 +92,11 @@ export default async function createWebProject({ framework, projectName }) {
 if (require.main === module) {
     const args = process.argv.slice(2);
     if (args.length < 2) {
-        console.error('Usage: node createWebProject.js <framework> <project-name>');
+        console.error('Usage: node createWebProject.js <technology> <project-name>');
         displayFrameworks();
         process.exit(1);
     }
 
-    const [framework, projectName] = args;
-    createWebProject({ framework, projectName });
+    const [technology, projectName] = args;
+    createWebProject({ technology, projectName });
 }
