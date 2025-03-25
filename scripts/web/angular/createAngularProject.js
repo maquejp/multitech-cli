@@ -20,36 +20,18 @@ function initializeProject(name) {
 
 function setupTailwindCSS(projectPath) {
     console.log('Setting up TailwindCSS...');
-    execSync('bun add -D tailwindcss postcss autoprefixer', {
+    execSync('bun add --silent tailwindcss @tailwindcss/postcss postcss', {
         cwd: projectPath,
         stdio: 'inherit',
     });
 
-    // Configure TailwindCSS
-    const tailwindConfig = `/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./src/**/*.{html,ts}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}`;
-    fs.writeFileSync(path.join(projectPath, 'tailwind.config.js'), tailwindConfig);
-
     // Create postcss.config.js
-    const postcssConfig = `module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
-}`;
-    fs.writeFileSync(path.join(projectPath, 'postcss.config.js'), postcssConfig);
+    const postcssConfig = `{  "plugins": {    "@tailwindcss/postcss": {}  }}`;
+    fs.writeFileSync(path.join(projectPath, '.postcssrc.json'), postcssConfig);
 
     // Update styles.css
     const stylesPath = path.join(projectPath, 'src/styles.css');
-    fs.writeFileSync(stylesPath, welcomePageContent.styles);
+    fs.writeFileSync(stylesPath, '@import "tailwindcss";\n');
 }
 
 function createFolderStructure(projectPath) {
@@ -105,8 +87,7 @@ function displayNextSteps(projectName) {
     console.log('\nAngular project created successfully! 🎉');
     console.log(`\nNext steps:
 1. cd ${projectName}
-2. bun install
-3. bun start`);
+2. bun start`);
 }
 
 export default async function createAngularProject({ projectName }) {
