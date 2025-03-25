@@ -1,4 +1,4 @@
-import createAngularProject from './web/createAngularProject.js';
+import createAngularProject from './web/angular/createAngularProject.js';
 import createReactProject from './web/createReactProject.js';
 import createAstroProject from './web/createAstroProject.js';
 import createVueProject from './web/createVueProject.js';
