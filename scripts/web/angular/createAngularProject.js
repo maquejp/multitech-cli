@@ -25,12 +25,6 @@ function setupTailwindCSS(projectPath) {
         stdio: 'inherit',
     });
 
-    // Initialize TailwindCSS
-    execSync('npx tailwindcss init -p', {
-        cwd: projectPath,
-        stdio: 'inherit',
-    });
-
     // Configure TailwindCSS
     const tailwindConfig = `/** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -43,6 +37,15 @@ module.exports = {
   plugins: [],
 }`;
     fs.writeFileSync(path.join(projectPath, 'tailwind.config.js'), tailwindConfig);
+
+    // Create postcss.config.js
+    const postcssConfig = `module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+}`;
+    fs.writeFileSync(path.join(projectPath, 'postcss.config.js'), postcssConfig);
 
     // Update styles.css
     const stylesPath = path.join(projectPath, 'src/styles.css');
