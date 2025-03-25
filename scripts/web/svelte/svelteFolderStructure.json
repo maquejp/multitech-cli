@@ -1,0 +1,44 @@
+{
+    "folders": [
+        {
+            "path": "src/lib/components",
+            "description": "Reusable Svelte components"
+        },
+        {
+            "path": "src/lib/layouts",
+            "description": "Layout components and templates"
+        },
+        {
+            "path": "src/routes",
+            "description": "Application pages and routes"
+        },
+        {
+            "path": "src/lib/styles",
+            "description": "Global styles and theme configurations"
+        },
+        {
+            "path": "src/lib/utils",
+            "description": "Utility functions and helpers"
+        },
+        {
+            "path": "src/lib/stores",
+            "description": "Svelte stores for state management"
+        },
+        {
+            "path": "src/lib/assets",
+            "description": "Static assets like images and fonts"
+        },
+        {
+            "path": "src/lib/i18n",
+            "description": "Internationalization configurations"
+        },
+        {
+            "path": "src/lib/config",
+            "description": "Application configuration files"
+        },
+        {
+            "path": "src/lib/types",
+            "description": "TypeScript type definitions"
+        }
+    ]
+}
