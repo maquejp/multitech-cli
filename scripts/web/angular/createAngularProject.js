@@ -2,6 +2,7 @@ import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { welcomePageContent } from '../shared/welcomePage.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -9,7 +10,7 @@ const __dirname = path.dirname(__filename);
 function initializeProject(name) {
     console.log('Creating new Angular project...');
     execSync(
-        `ng new ${name} --style=css --ssr=false  --skip-tests --package-manager bun`,
+        `ng new ${name} --style=css --routing=true --skip-tests=true --strict=true --skip-git=true`,
         {
             stdio: 'inherit',
         }
@@ -23,17 +24,29 @@ function setupTailwindCSS(projectPath) {
         cwd: projectPath,
         stdio: 'inherit',
     });
-    execSync('bun add --silent tailwindcss @tailwindcss/postcss postcss', { cwd: projectPath, stdio: 'inherit' });
 
-    // Create PostCSS config
-    const postcssPath = path.join(projectPath, '.postcssrc.json');
-    const postcssConfig = `{  "plugins": {    "@tailwindcss/postcss": {}  }}`;
-    fs.writeFileSync(postcssPath, postcssConfig, "utf-8");
+    // Initialize TailwindCSS
+    execSync('npx tailwindcss init -p', {
+        cwd: projectPath,
+        stdio: 'inherit',
+    });
+
+    // Configure TailwindCSS
+    const tailwindConfig = `/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{html,ts}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}`;
+    fs.writeFileSync(path.join(projectPath, 'tailwind.config.js'), tailwindConfig);
 
     // Update styles.css
     const stylesPath = path.join(projectPath, 'src/styles.css');
-    const stylesContent = `@import "tailwindcss"\n`;
-    fs.writeFileSync(stylesPath, stylesContent, "utf-8");
+    fs.writeFileSync(stylesPath, welcomePageContent.styles);
 }
 
 function createFolderStructure(projectPath) {
@@ -49,50 +62,48 @@ function createFolderStructure(projectPath) {
 }
 
 function updateAppComponent(projectPath, projectName, creationDate) {
-    // Update app.component.ts
     const appComponentPath = path.join(projectPath, 'src/app/app.component.ts');
     const appComponentContent = `import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styles: []
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  creationDate = "${creationDate}";
+  title = '${projectName}';
+  creationDate = '${creationDate}';
+  count = 0;
+
+  incrementCount() {
+    this.count++;
+  }
 }`;
     fs.writeFileSync(appComponentPath, appComponentContent);
 
-    // Update app.component.html
     const appComponentHtmlPath = path.join(projectPath, 'src/app/app.component.html');
-    const appComponentHtmlContent = `<div class="min-h-screen bg-gray-100 flex items-center justify-center">
-  <div class="text-center">
-    <h1 class="text-4xl font-bold text-gray-800 mb-4">Welcome to ${projectName}</h1>
-    <p class="text-gray-600">Created on: {{ creationDate }}</p>
-  </div>
-</div>`;
+    const appComponentHtmlContent = welcomePageContent.html
+        .replace('{{projectName}}', '{{ title }}')
+        .replace('{{creationDate}}', '{{ creationDate }}')
+        .replace('{{filePath}}', 'src/app/app.component.html')
+        .replace('{{clickHandler}}', '(click)="incrementCount()"')
+        .replace('{{count}}', '{{ count }}');
     fs.writeFileSync(appComponentHtmlPath, appComponentHtmlContent);
-
-    // Empty app.component.css
-    const appComponentCssPath = path.join(projectPath, 'src/app/app.component.css');
-    fs.writeFileSync(appComponentCssPath, '');
 }
 
 function updateIndexHtml(projectPath, projectName) {
     const indexHtmlPath = path.join(projectPath, 'src/index.html');
-    let content = fs.readFileSync(indexHtmlPath, 'utf-8');
-
-    // Replace the title tag content
-    content = content.replace(/<title>.*?<\/title>/, `<title>${projectName}</title>`);
-
-    fs.writeFileSync(indexHtmlPath, content);
+    const content = fs.readFileSync(indexHtmlPath, 'utf-8');
+    const updatedContent = content.replace(/<title>.*?<\/title>/, `<title>${projectName}</title>`);
+    fs.writeFileSync(indexHtmlPath, updatedContent);
 }
 
 function displayNextSteps(projectName) {
     console.log('\nAngular project created successfully! 🎉');
     console.log(`\nNext steps:
 1. cd ${projectName}
-2. ng serve`);
+2. npm install
+3. ng serve`);
 }
 
 export default async function createAngularProject({ projectName }) {
@@ -109,7 +120,7 @@ export default async function createAngularProject({ projectName }) {
         // 3. Create recommended folder structure
         createFolderStructure(projectPath);
 
-        // 4. Update app.component.ts with minimal implementation
+        // 4. Update App component with minimal implementation
         updateAppComponent(projectPath, projectName, creationDate);
 
         // 5. Update index.html with project name

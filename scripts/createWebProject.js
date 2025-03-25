@@ -1,7 +1,7 @@
 import createAngularProject from './web/angular/createAngularProject.js';
 import createReactProject from './web/react/createReactProject.js';
 import createAstroProject from './web/astro/createAstroProject.js';
-import createVueProject from './web/createVueProject.js';
+import createVueProject from './web/vue/createVueProject.js';
 
 export default async function ({ technology, projectName }) {
     console.log(`Creating a web project using ${technology}...`);

@@ -2,6 +2,7 @@ import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { welcomePageContent } from '../shared/welcomePage.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -9,7 +10,7 @@ const __dirname = path.dirname(__filename);
 function initializeProject(name) {
   console.log('Creating new Astro project...');
   execSync(
-    `bun create astro@latest ${name} -- --template basics --typescript strict --git --install --no-hooks`,
+    `npm create astro@latest ${name} -- --template basics --typescript strict --git --install --no-hooks`,
     {
       stdio: 'inherit',
     }
@@ -19,10 +20,35 @@ function initializeProject(name) {
 
 function setupTailwindCSS(projectPath) {
   console.log('Setting up TailwindCSS...');
-  execSync('bun astro add tailwind -y', {
+  execSync('npm install -D tailwindcss @astrojs/tailwind postcss autoprefixer', {
     cwd: projectPath,
     stdio: 'inherit',
   });
+
+  // Configure TailwindCSS
+  const tailwindConfig = `/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}`;
+  fs.writeFileSync(path.join(projectPath, 'tailwind.config.mjs'), tailwindConfig);
+
+  // Update astro.config.mjs
+  const astroConfigPath = path.join(projectPath, 'astro.config.mjs');
+  const astroConfig = `import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind';
+
+export default defineConfig({
+  integrations: [tailwind()],
+});`;
+  fs.writeFileSync(astroConfigPath, astroConfig);
+
+  // Update global.css
+  const stylesPath = path.join(projectPath, 'src/styles/global.css');
+  fs.writeFileSync(stylesPath, welcomePageContent.styles);
 }
 
 function createFolderStructure(projectPath) {
@@ -41,37 +67,59 @@ function createFolderStructure(projectPath) {
 function updateIndexPage(projectPath, projectName, creationDate) {
   // Update index.astro
   const indexPath = path.join(projectPath, 'src/pages/index.astro');
-  const indexContent = `
-  ---
-  import Layout from '../layouts/Layout.astro';
-  ---
-  <Layout title="${projectName}">
-    <main class="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div class="text-center">
-        <h1 class="text-4xl font-bold text-gray-800 mb-4">Welcome to ${projectName}</h1>
-        <p class="text-gray-600">Created on: ${creationDate}</p>
-      </div>
-    </main>
-  </Layout>`;
+  const indexContent = `---
+import Layout from '../layouts/Layout.astro';
+
+const count = Astro.react.useState(0);
+---
+
+<Layout title="${projectName}">
+${welcomePageContent.html
+      .replace('{{projectName}}', projectName)
+      .replace('{{creationDate}}', creationDate)
+      .replace('{{filePath}}', 'src/pages/index.astro')
+      .replace('{{clickHandler}}', 'onClick={() => count.set(count.get() + 1)}')
+      .replace('{{count}}', '{count.get()}')}
+</Layout>`;
   fs.writeFileSync(indexPath, indexContent);
 
   // Update Layout.astro
   const layoutPath = path.join(projectPath, 'src/layouts/Layout.astro');
-  const layoutContent = readFileSync(layoutPath, "utf-8");
-  const updatedLayoutContent =
-    '---\n import "../styles/global.css";\n ---\n\n' +
-    layoutContent.replace(
-      /<title>.*<\/title>/,
-      `<title>${formattedProjectName}</title>`
-    );
-  fs.writeFileSync(updatedLayoutContent, layoutContent);
+  const layoutContent = `---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>`;
+  fs.writeFileSync(layoutPath, layoutContent);
 }
 
 function displayNextSteps(projectName) {
   console.log('\nAstro project created successfully! 🎉');
   console.log(`\nNext steps:
 1. cd ${projectName}
-2. npm run dev`);
+2. npm install
+3. npm run dev`);
 }
 
 export default async function createAstroProject({ projectName }) {

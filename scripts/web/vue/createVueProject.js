@@ -8,9 +8,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 function initializeProject(name) {
-  console.log('Creating new React project...');
+  console.log('Creating new Vue project...');
   execSync(
-    `npm create vite@latest ${name} -- --template react-ts`,
+    `npm create vue@latest ${name} -- --typescript --router --pinia --vitest --eslint --prettier`,
     {
       stdio: 'inherit',
     }
@@ -36,7 +36,7 @@ function setupTailwindCSS(projectPath) {
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
@@ -45,14 +45,14 @@ export default {
 }`;
   fs.writeFileSync(path.join(projectPath, 'tailwind.config.js'), tailwindConfig);
 
-  // Update index.css
-  const stylesPath = path.join(projectPath, 'src/index.css');
+  // Update assets/main.css
+  const stylesPath = path.join(projectPath, 'src/assets/main.css');
   fs.writeFileSync(stylesPath, welcomePageContent.styles);
 }
 
 function createFolderStructure(projectPath) {
   const folderStructure = JSON.parse(
-    fs.readFileSync(path.join(__dirname, 'reactFolderStructure.json'), 'utf-8')
+    fs.readFileSync(path.join(__dirname, 'vueFolderStructure.json'), 'utf-8')
   );
 
   folderStructure.folders.forEach((folder) => {
@@ -63,35 +63,42 @@ function createFolderStructure(projectPath) {
 }
 
 function updateAppComponent(projectPath, projectName, creationDate) {
-  const appPath = path.join(projectPath, 'src/App.tsx');
-  const appContent = `import { useState } from 'react'
+  const appPath = path.join(projectPath, 'src/App.vue');
+  const appContent = `<script setup lang="ts">
+import { ref } from 'vue'
 
-function App() {
-  const [count, setCount] = useState(0)
+const count = ref(0)
+</script>
 
-  return (
+<template>
 ${welcomePageContent.html
       .replace('{{projectName}}', projectName)
       .replace('{{creationDate}}', creationDate)
-      .replace('{{filePath}}', 'src/App.tsx')
-      .replace('{{clickHandler}}', 'onClick={() => setCount((count) => count + 1)}')
-      .replace('{{count}}', '{count}')}
-  )
-}
+      .replace('{{filePath}}', 'src/App.vue')
+      .replace('{{clickHandler}}', '@click="count++"')
+      .replace('{{count}}', '{{ count }}')}
+</template>
 
-export default App`;
+<style scoped>
+.projectName {
+  content: '${projectName}';
+}
+.creationDate {
+  content: '${creationDate}';
+}
+</style>`;
   fs.writeFileSync(appPath, appContent);
 }
 
 function displayNextSteps(projectName) {
-  console.log('\nReact project created successfully! 🎉');
+  console.log('\nVue project created successfully! 🎉');
   console.log(`\nNext steps:
 1. cd ${projectName}
 2. npm install
 3. npm run dev`);
 }
 
-export default async function createReactProject({ projectName }) {
+export default async function createVueProject({ projectName }) {
   try {
     // Get creation date
     const creationDate = new Date().toLocaleString();
@@ -111,7 +118,7 @@ export default async function createReactProject({ projectName }) {
     // 5. Display next steps
     displayNextSteps(projectName);
   } catch (error) {
-    console.error('Error creating React project:', error);
+    console.error('Error creating Vue project:', error);
     process.exit(1);
   }
 }
@@ -123,5 +130,5 @@ if (require.main === module) {
     console.error('Please provide a project name');
     process.exit(1);
   }
-  createReactProject({ projectName });
-}
+  createVueProject({ projectName });
+} 

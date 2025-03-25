@@ -1,0 +1,80 @@
+{
+    "folders": [
+        {
+            "path": "src/components",
+            "description": "# Components\n\nThis directory contains reusable Vue components.\n\n## Purpose\n- Shared UI components\n- Layout components\n- Feature-specific components\n- Component utilities"
+        },
+        {
+            "path": "src/components/common",
+            "description": "# Common Components\n\nThis directory contains shared, reusable UI components.\n\n## Purpose\n- Button components\n- Form elements\n- Modal components\n- Card components\n- Navigation elements"
+        },
+        {
+            "path": "src/components/layout",
+            "description": "# Layout Components\n\nThis directory contains layout-related components.\n\n## Purpose\n- Header components\n- Footer components\n- Sidebar components\n- Grid layouts\n- Container components"
+        },
+        {
+            "path": "src/views",
+            "description": "# Views\n\nThis directory contains page-level components and views.\n\n## Purpose\n- Page components\n- Route views\n- Page-specific logic\n- Page metadata"
+        },
+        {
+            "path": "src/composables",
+            "description": "# Composables\n\nThis directory contains Vue composables (similar to React hooks).\n\n## Purpose\n- Data fetching composables\n- State management composables\n- UI interaction composables\n- Form handling composables\n- Authentication composables"
+        },
+        {
+            "path": "src/services",
+            "description": "# Services\n\nThis directory contains service-related functionality.\n\n## Purpose\n- API clients\n- HTTP requests\n- External service integrations\n- Data fetching utilities"
+        },
+        {
+            "path": "src/services/api",
+            "description": "# API Services\n\nThis directory contains API endpoint-specific services.\n\n## Purpose\n- API endpoint implementations\n- Service-specific logic\n- API response handling\n- API error handling"
+        },
+        {
+            "path": "src/services/http",
+            "description": "# HTTP Utilities\n\nThis directory contains HTTP-related utilities.\n\n## Purpose\n- Base HTTP client configuration\n- Request/response interceptors\n- Error handling utilities\n- HTTP request helpers"
+        },
+        {
+            "path": "src/services/external",
+            "description": "# External Services\n\nThis directory contains external service integrations.\n\n## Purpose\n- Third-party service integrations\n- External API clients\n- Service-specific configurations\n- External service utilities"
+        },
+        {
+            "path": "src/stores",
+            "description": "# State Management\n\nThis directory contains Pinia store modules.\n\n## Purpose\n- Store modules\n- State definitions\n- Actions\n- Getters\n- Store utilities"
+        },
+        {
+            "path": "src/utils",
+            "description": "# Utilities\n\nThis directory contains utility functions and helpers.\n\n## Purpose\n- Helper functions\n- Constants\n- Type definitions\n- Shared utilities"
+        },
+        {
+            "path": "src/styles",
+            "description": "# Styles\n\nThis directory contains global styles and theme configurations.\n\n## Purpose\n- Global CSS\n- Theme variables\n- Style utilities\n- Custom styles"
+        },
+        {
+            "path": "src/assets",
+            "description": "# Assets\n\nThis directory contains static assets used in the application.\n\n## Purpose\n- Images\n- Icons\n- Fonts\n- Other static files"
+        },
+        {
+            "path": "src/i18n",
+            "description": "# Internationalization\n\nThis directory contains translation files and i18n configurations.\n\n## Purpose\n- Translation files\n- Language configurations\n- i18n utilities\n- Locale data"
+        },
+        {
+            "path": "src/config",
+            "description": "# Configuration\n\nThis directory contains application configuration files.\n\n## Purpose\n- App configuration\n- Feature flags\n- Constants\n- Configuration utilities"
+        },
+        {
+            "path": "src/types",
+            "description": "# Types\n\nThis directory contains TypeScript type definitions.\n\n## Purpose\n- Type definitions\n- Interfaces\n- Enums\n- Type utilities"
+        },
+        {
+            "path": "src/router",
+            "description": "# Router\n\nThis directory contains Vue Router configuration.\n\n## Purpose\n- Route definitions\n- Navigation guards\n- Route utilities\n- Route types"
+        },
+        {
+            "path": "src/constants",
+            "description": "# Constants\n\nThis directory contains application-wide constants.\n\n## Purpose\n- API endpoints\n- Configuration constants\n- Enum values\n- Static data"
+        },
+        {
+            "path": "src/plugins",
+            "description": "# Plugins\n\nThis directory contains Vue plugins and their configurations.\n\n## Purpose\n- Third-party plugins\n- Custom plugins\n- Plugin configurations\n- Plugin utilities"
+        }
+    ]
+}
