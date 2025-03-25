@@ -76,17 +76,24 @@ function updateIndexPage(projectPath, projectName, creationDate) {
   const indexPath = path.join(projectPath, 'src/pages/index.astro');
   const indexContent = `---
 import Layout from '../layouts/Layout.astro';
-import Counter from '../components/Counter';
 ---
 
 <Layout title="${projectName}">
-${welcomePageContent.html
+    ${welcomePageContent.astro.html
       .replace('{{projectName}}', projectName)
       .replace('{{creationDate}}', creationDate)
       .replace('{{filePath}}', 'src/pages/index.astro')
-      .replace('{{clickHandler}}', '')
-      .replace('{{count}}', '<Counter client:load />')}
-</Layout>`;
+      .replace('{{clickHandler}}', 'id="counter"')
+      .replace('{{count}}', '0')}
+</Layout>
+
+<script>
+    let count = 0;
+    document.getElementById('counter')?.addEventListener('click', () => {
+        count++;
+        document.getElementById('counter').textContent = count;
+    });
+</script>`;
   fs.writeFileSync(indexPath, indexContent);
 
   // Update Layout.astro

@@ -8,7 +8,7 @@ import createBackendProject from './scripts/createBackendProject.js';
 import createDatabaseProject from './scripts/createDatabaseProject.js';
 
 const categories = {
-    web: ['angular', 'reactjs', 'astro', 'vuejs'],
+    web: ['angular', 'react', 'astro', 'vuejs'],
     database: ['oracle', 'mongodb', 'mariadb', 'postgresql'],
     backend: ['expressjs', 'api-platform', 'spring-boot'],
     mobile: ['flutter', 'reactnative', 'ionic'],

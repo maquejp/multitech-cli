@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 function initializeProject(name) {
   console.log('Creating new React project...');
   execSync(
-    `bun create vite@latest ${name} -- --template react-ts`,
+    `bun create vite@latest ${name} --template react-ts`,
     {
       stdio: 'inherit',
     }
@@ -20,13 +20,7 @@ function initializeProject(name) {
 
 function setupTailwindCSS(projectPath) {
   console.log('Setting up TailwindCSS...');
-  execSync('bun add -D tailwindcss postcss autoprefixer', {
-    cwd: projectPath,
-    stdio: 'inherit',
-  });
-
-  // Initialize TailwindCSS
-  execSync('npx tailwindcss init -p', {
+  execSync('bun add tailwindcss @tailwindcss/vite', {
     cwd: projectPath,
     stdio: 'inherit',
   });
@@ -41,13 +35,13 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [react(), tailwindcss()],
 }`;
   fs.writeFileSync(path.join(projectPath, 'tailwind.config.js'), tailwindConfig);
 
   // Update index.css
   const stylesPath = path.join(projectPath, 'src/index.css');
-  fs.writeFileSync(stylesPath, welcomePageContent.styles);
+  fs.writeFileSync(stylesPath, welcomePageContent.react.styles);
 }
 
 function createFolderStructure(projectPath) {
@@ -70,7 +64,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-${welcomePageContent.html
+    ${welcomePageContent.react.html
       .replace('{{projectName}}', projectName)
       .replace('{{creationDate}}', creationDate)
       .replace('{{filePath}}', 'src/App.tsx')
@@ -87,8 +81,7 @@ function displayNextSteps(projectName) {
   console.log('\nReact project created successfully! 🎉');
   console.log(`\nNext steps:
 1. cd ${projectName}
-2. bun install
-3. bun run dev`);
+2. bun run dev`);
 }
 
 export default async function createReactProject({ projectName }) {

@@ -47,7 +47,7 @@ export default {
 
   // Update assets/main.css
   const stylesPath = path.join(projectPath, 'src/assets/main.css');
-  fs.writeFileSync(stylesPath, welcomePageContent.styles);
+  fs.writeFileSync(stylesPath, welcomePageContent.vue.styles);
 }
 
 function createFolderStructure(projectPath) {
@@ -71,7 +71,7 @@ const count = ref(0)
 </script>
 
 <template>
-${welcomePageContent.html
+    ${welcomePageContent.vue.html
       .replace('{{projectName}}', projectName)
       .replace('{{creationDate}}', creationDate)
       .replace('{{filePath}}', 'src/App.vue')
@@ -81,10 +81,10 @@ ${welcomePageContent.html
 
 <style scoped>
 .projectName {
-  content: '${projectName}';
+    content: '${projectName}';
 }
 .creationDate {
-  content: '${creationDate}';
+    content: '${creationDate}';
 }
 </style>`;
   fs.writeFileSync(appPath, appContent);

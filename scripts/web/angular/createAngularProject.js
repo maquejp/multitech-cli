@@ -67,13 +67,13 @@ export class AppComponent {
     fs.writeFileSync(appComponentPath, appComponentContent);
 
     const appComponentHtmlPath = path.join(projectPath, 'src/app/app.component.html');
-    const appComponentHtmlContent = welcomePageContent.html
-        .replace('{{projectName}}', '{{ title }}')
-        .replace('{{creationDate}}', '{{ creationDate }}')
+    const updatedContent = welcomePageContent.angular.html
+        .replace('{{projectName}}', projectName)
+        .replace('{{creationDate}}', creationDate)
         .replace('{{filePath}}', 'src/app/app.component.html')
         .replace('{{clickHandler}}', '(click)="incrementCount()"')
-        .replace('{{count}}', '{{ count }}');
-    fs.writeFileSync(appComponentHtmlPath, appComponentHtmlContent);
+        .replace('{{count}}', '{{count}}');
+    fs.writeFileSync(appComponentHtmlPath, updatedContent);
 }
 
 function updateIndexHtml(projectPath, projectName) {
