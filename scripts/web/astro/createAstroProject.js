@@ -33,7 +33,7 @@ function setupTailwindCSS(projectPath) {
 
   // Update global.css
   const stylesPath = path.join(projectPath, 'src/styles/global.css');
-  fs.writeFileSync(stylesPath, welcomePageContent.styles);
+  fs.writeFileSync(stylesPath, welcomePageContent.astro.styles);
 }
 
 function createFolderStructure(projectPath) {
