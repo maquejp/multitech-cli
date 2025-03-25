@@ -20,7 +20,13 @@ function initializeProject(name) {
 
 function setupTailwindCSS(projectPath) {
   console.log('Setting up TailwindCSS...');
-  execSync('bun astro add tailwind -y ', {
+  execSync('bun astro add tailwind -y', {
+    cwd: projectPath,
+    stdio: 'inherit',
+  });
+
+  // Add React integration
+  execSync('bun astro add react -y', {
     cwd: projectPath,
     stdio: 'inherit',
   });
@@ -43,11 +49,34 @@ function createFolderStructure(projectPath) {
   });
 }
 
+function createCounterComponent(projectPath) {
+  const counterPath = path.join(projectPath, 'src/components/Counter.tsx');
+  const counterContent = `import { useState } from 'react';
+
+export default function Counter() {
+    const [count, setCount] = useState(0);
+
+    return (
+        <button
+            onClick={() => setCount(count + 1)}
+            className="text-4xl font-bold text-blue-600 hover:text-blue-800 transition-colors"
+        >
+            {count}
+        </button>
+    );
+}`;
+  fs.writeFileSync(counterPath, counterContent);
+}
+
 function updateIndexPage(projectPath, projectName, creationDate) {
+  // Create Counter component
+  createCounterComponent(projectPath);
+
   // Update index.astro
   const indexPath = path.join(projectPath, 'src/pages/index.astro');
   const indexContent = `---
 import Layout from '../layouts/Layout.astro';
+import Counter from '../components/Counter';
 ---
 
 <Layout title="${projectName}">
@@ -55,20 +84,9 @@ ${welcomePageContent.html
       .replace('{{projectName}}', projectName)
       .replace('{{creationDate}}', creationDate)
       .replace('{{filePath}}', 'src/pages/index.astro')
-      .replace('{{clickHandler}}', 'id="counter"')
-      .replace('{{count}}', '0')}
-</Layout>
-
-<script>
-    let count = 0;
-    const counter = document.getElementById('counter');
-    if (counter) {
-        counter.addEventListener('click', () => {
-            count++;
-            counter.textContent = count;
-        });
-    }
-</script>`;
+      .replace('{{clickHandler}}', '')
+      .replace('{{count}}', '<Counter client:load />')}
+</Layout>`;
   fs.writeFileSync(indexPath, indexContent);
 
   // Update Layout.astro
