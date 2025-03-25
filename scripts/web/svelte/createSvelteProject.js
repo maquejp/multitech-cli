@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 function initializeProject(name) {
     console.log('Creating new Svelte project...');
     execSync(
-        `npm create vite@latest ${name} -- --template svelte-ts`,
+        `bun create vite@latest ${name} -- --template svelte-ts`,
         {
             stdio: 'inherit',
         }
@@ -20,7 +20,7 @@ function initializeProject(name) {
 
 function setupTailwindCSS(projectPath) {
     console.log('Setting up TailwindCSS...');
-    execSync('npm install -D tailwindcss postcss autoprefixer', {
+    execSync('bun add -D tailwindcss postcss autoprefixer', {
         cwd: projectPath,
         stdio: 'inherit',
     });
@@ -95,8 +95,8 @@ function displayNextSteps(projectName) {
     console.log('\nSvelte project created successfully! 🎉');
     console.log(`\nNext steps:
 1. cd ${projectName}
-2. npm install
-3. npm run dev`);
+2. bun install
+3. bun run dev`);
 }
 
 export default async function createSvelteProject({ projectName }) {

@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 function initializeProject(name) {
   console.log('Creating new Astro project...');
   execSync(
-    `npm create astro@latest ${name} -- --template basics --typescript strict --git --install --no-hooks`,
+    `bun create astro@latest ${name} -- --template basics --typescript strict --git --install --no-hooks`,
     {
       stdio: 'inherit',
     }
@@ -20,7 +20,7 @@ function initializeProject(name) {
 
 function setupTailwindCSS(projectPath) {
   console.log('Setting up TailwindCSS...');
-  execSync('npm install -D tailwindcss @astrojs/tailwind postcss autoprefixer', {
+  execSync('bun add -D tailwindcss @astrojs/tailwind postcss autoprefixer', {
     cwd: projectPath,
     stdio: 'inherit',
   });
@@ -118,8 +118,8 @@ function displayNextSteps(projectName) {
   console.log('\nAstro project created successfully! 🎉');
   console.log(`\nNext steps:
 1. cd ${projectName}
-2. npm install
-3. npm run dev`);
+2. bun install
+3. bun run dev`);
 }
 
 export default async function createAstroProject({ projectName }) {
