@@ -25,9 +25,6 @@ function setupTailwindCSS(projectPath) {
     stdio: 'inherit',
   });
 
-  // Update global.css
-  const stylesPath = path.join(projectPath, 'src/styles/global.css');
-  fs.writeFileSync(stylesPath, welcomePageContent.astro.styles);
 }
 
 function createFolderStructure(projectPath) {
@@ -43,28 +40,7 @@ function createFolderStructure(projectPath) {
   });
 }
 
-function createCounterComponent(projectPath) {
-  const counterPath = path.join(projectPath, 'src/components/Counter.tsx');
-  const counterContent = `import { useState } from 'react';
-
-export default function Counter() {
-    const [count, setCount] = useState(0);
-
-    return (
-        <button
-            onClick={() => setCount(count + 1)}
-            className="text-4xl font-bold text-blue-600 hover:text-blue-800 transition-colors"
-        >
-            {count}
-        </button>
-    );
-}`;
-  fs.writeFileSync(counterPath, counterContent);
-}
-
 function updateIndexPage(projectPath, projectName, creationDate) {
-  // Create Counter component
-  createCounterComponent(projectPath);
 
   // Update index.astro
   const indexPath = path.join(projectPath, 'src/pages/index.astro');
@@ -77,48 +53,20 @@ import Layout from '../layouts/Layout.astro';
       .replace('{{projectName}}', projectName)
       .replace('{{creationDate}}', creationDate)
       .replace('{{filePath}}', 'src/pages/index.astro')
-      .replace('{{clickHandler}}', 'id="counter"')
-      .replace('{{count}}', '0')}
-</Layout>
-
-<script>
-    let count = 0;
-    document.getElementById('counter')?.addEventListener('click', () => {
-        count++;
-        document.getElementById('counter').textContent = count;
-    });
-</script>`;
+    }
+</Layout>`;
   fs.writeFileSync(indexPath, indexContent);
 
   // Update Layout.astro
   const layoutPath = path.join(projectPath, 'src/layouts/Layout.astro');
-  const layoutContent = `---
-interface Props {
-  title: string;
-}
-
-const { title } = Astro.props;
----
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body>
-    <slot />
-  </body>
-</html>
-
-<style is:global>
-  @import '../styles/global.css';
-</style>`;
-  fs.writeFileSync(layoutPath, layoutContent);
+  const layoutContent = fs.readFileSync(layoutPath, "utf-8");
+  const updatedLayoutContent =
+    '---\n import "../styles/global.css";\n ---\n\n' +
+    layoutContent.replace(
+      /<title>.*<\/title>/,
+      `<title>${projectName}</title>`
+    );
+  fs.writeFileSync(layoutPath, updatedLayoutContent, "utf-8");
 }
 
 function displayNextSteps(projectName) {
