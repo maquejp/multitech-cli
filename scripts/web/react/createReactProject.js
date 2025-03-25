@@ -1,0 +1,142 @@
+import { execSync } from 'child_process';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+function initializeProject(name) {
+  console.log('Creating new React project...');
+  execSync(
+    `bun create vite@latest ${name} --template react-ts`,
+    {
+      stdio: 'inherit',
+    }
+  );
+  return path.join(process.cwd(), name);
+}
+
+function setupTailwindCSS(projectPath) {
+  console.log('Setting up TailwindCSS...');
+  execSync('bun install -D tailwindcss postcss autoprefixer', {
+    cwd: projectPath,
+    stdio: 'inherit',
+  });
+
+  // Initialize TailwindCSS
+  execSync('bunx tailwindcss init -p', {
+    cwd: projectPath,
+    stdio: 'inherit',
+  });
+
+  // Configure TailwindCSS
+  const tailwindConfig = `/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}`;
+  fs.writeFileSync(path.join(projectPath, 'tailwind.config.js'), tailwindConfig);
+
+  // Update index.css
+  const stylesPath = path.join(projectPath, 'src/index.css');
+  const stylesContent = `@tailwind base;
+@tailwind components;
+@tailwind utilities;`;
+  fs.writeFileSync(stylesPath, stylesContent);
+}
+
+function createFolderStructure(projectPath) {
+  const folderStructure = JSON.parse(
+    fs.readFileSync(path.join(__dirname, 'reactFolderStructure.json'), 'utf-8')
+  );
+
+  folderStructure.folders.forEach((folder) => {
+    const folderPath = path.join(projectPath, folder.path);
+    fs.mkdirSync(folderPath, { recursive: true });
+    fs.writeFileSync(path.join(folderPath, 'README.md'), folder.description);
+  });
+}
+
+function updateAppComponent(projectPath, projectName, creationDate) {
+  const appPath = path.join(projectPath, 'src/App.tsx');
+  const appContent = `import { useState } from 'react'
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold text-gray-800 mb-4">Welcome to ${projectName}</h1>
+        <p className="text-gray-600 mb-8">Created on: ${creationDate}</p>
+        <div className="space-y-4">
+          <p className="text-gray-700">
+            Edit <code className="bg-gray-200 px-2 py-1 rounded">src/App.tsx</code> and save to test HMR
+          </p>
+          <div className="flex justify-center gap-4">
+            <button
+              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+              onClick={() => setCount((count) => count + 1)}
+            >
+              Count is {count}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default App`;
+  fs.writeFileSync(appPath, appContent);
+}
+
+function displayNextSteps(projectName) {
+  console.log('\nReact project created successfully! 🎉');
+  console.log(`\nNext steps:
+1. cd ${projectName}
+2. npm install
+3. npm run dev`);
+}
+
+export default async function createReactProject({ projectName }) {
+  try {
+    // Get creation date
+    const creationDate = new Date().toLocaleString();
+
+    // 1. Initialize the project
+    const projectPath = initializeProject(projectName);
+
+    // 2. Setup TailwindCSS
+    setupTailwindCSS(projectPath);
+
+    // 3. Create recommended folder structure
+    createFolderStructure(projectPath);
+
+    // 4. Update App component with minimal implementation
+    updateAppComponent(projectPath, projectName, creationDate);
+
+    // 5. Display next steps
+    displayNextSteps(projectName);
+  } catch (error) {
+    console.error('Error creating React project:', error);
+    process.exit(1);
+  }
+}
+
+// If running directly (not imported as a module)
+if (require.main === module) {
+  const projectName = process.argv[2];
+  if (!projectName) {
+    console.error('Please provide a project name');
+    process.exit(1);
+  }
+  createReactProject({ projectName });
+} 

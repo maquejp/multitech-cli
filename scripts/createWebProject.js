@@ -1,5 +1,5 @@
 import createAngularProject from './web/angular/createAngularProject.js';
-import createReactProject from './web/createReactProject.js';
+import createReactProject from './web/react/createReactProject.js';
 import createAstroProject from './web/astro/createAstroProject.js';
 import createVueProject from './web/createVueProject.js';
 
