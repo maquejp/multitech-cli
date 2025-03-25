@@ -20,31 +20,10 @@ function initializeProject(name) {
 
 function setupTailwindCSS(projectPath) {
   console.log('Setting up TailwindCSS...');
-  execSync('bun add -D tailwindcss @astrojs/tailwind postcss autoprefixer', {
+  execSync('bun astro add tailwind -y ', {
     cwd: projectPath,
     stdio: 'inherit',
   });
-
-  // Configure TailwindCSS
-  const tailwindConfig = `/** @type {import('tailwindcss').Config} */
-export default {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}`;
-  fs.writeFileSync(path.join(projectPath, 'tailwind.config.mjs'), tailwindConfig);
-
-  // Update astro.config.mjs
-  const astroConfigPath = path.join(projectPath, 'astro.config.mjs');
-  const astroConfig = `import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
-
-export default defineConfig({
-  integrations: [tailwind()],
-});`;
-  fs.writeFileSync(astroConfigPath, astroConfig);
 
   // Update global.css
   const stylesPath = path.join(projectPath, 'src/styles/global.css');
@@ -70,7 +49,7 @@ function updateIndexPage(projectPath, projectName, creationDate) {
   const indexContent = `---
 import Layout from '../layouts/Layout.astro';
 
-const count = Astro.react.useState(0);
+let count = 0;
 ---
 
 <Layout title="${projectName}">
@@ -78,8 +57,8 @@ ${welcomePageContent.html
       .replace('{{projectName}}', projectName)
       .replace('{{creationDate}}', creationDate)
       .replace('{{filePath}}', 'src/pages/index.astro')
-      .replace('{{clickHandler}}', 'onClick={() => count.set(count.get() + 1)}')
-      .replace('{{count}}', '{count.get()}')}
+      .replace('{{clickHandler}}', 'on:click={() => count++}')
+      .replace('{{count}}', '{count}')}
 </Layout>`;
   fs.writeFileSync(indexPath, indexContent);
 
@@ -118,8 +97,7 @@ function displayNextSteps(projectName) {
   console.log('\nAstro project created successfully! 🎉');
   console.log(`\nNext steps:
 1. cd ${projectName}
-2. bun install
-3. bun run dev`);
+2. bun run dev`);
 }
 
 export default async function createAstroProject({ projectName }) {
