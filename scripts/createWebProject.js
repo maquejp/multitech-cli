@@ -1,6 +1,6 @@
 import createAngularProject from './web/angular/createAngularProject.js';
 import createReactProject from './web/createReactProject.js';
-import createAstroProject from './web/createAstroProject.js';
+import createAstroProject from './web/astro/createAstroProject.js';
 import createVueProject from './web/createVueProject.js';
 
 export default async function ({ technology, projectName }) {
