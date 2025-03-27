@@ -18,32 +18,6 @@ function initializeProject(name) {
   return path.join(process.cwd(), name);
 }
 
-function setupTailwindCSS(projectPath) {
-  console.log('Setting up TailwindCSS...');
-  execSync('bun add tailwindcss @tailwindcss/vite', {
-    cwd: projectPath,
-    stdio: 'inherit',
-  });
-
-  // Configure TailwindCSS
-  const tailwindConfig = `/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [react(), tailwindcss()],
-}`;
-  fs.writeFileSync(path.join(projectPath, 'tailwind.config.js'), tailwindConfig);
-
-  // Update index.css
-  const stylesPath = path.join(projectPath, 'src/index.css');
-  fs.writeFileSync(stylesPath, welcomePageContent.react.styles);
-}
-
 function createFolderStructure(projectPath) {
   const folderStructure = JSON.parse(
     fs.readFileSync(path.join(__dirname, 'reactFolderStructure.json'), 'utf-8')
@@ -56,24 +30,14 @@ function createFolderStructure(projectPath) {
   });
 }
 
-function updateAppComponent(projectPath, projectName, creationDate) {
-  const appPath = path.join(projectPath, 'src/App.tsx');
-  const appContent = `import { useState } from 'react'
-
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    ${welcomePageContent.react.html
-      .replace('{{projectName}}', projectName)
-      .replace('{{creationDate}}', creationDate)
-      .replace('{{filePath}}', 'src/App.tsx')
-      .replace('{{clickHandler}}', 'onClick={() => setCount((count) => count + 1)}')
-      .replace('{{count}}', '{count}')}
-  )
+function setupTailwindCSS(projectPath) {
+  console.log('Setting up TailwindCSS...');
 }
 
-export default App`;
+function updateAppComponent(projectPath, projectName, creationDate) {
+  // Update App.tsx
+  const appPath = path.join(projectPath, 'src/App.tsx');
+  const appContent = ``;
   fs.writeFileSync(appPath, appContent);
 }
 

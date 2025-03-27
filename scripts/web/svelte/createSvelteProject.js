@@ -18,38 +18,6 @@ function initializeProject(name) {
     return path.join(process.cwd(), name);
 }
 
-function setupTailwindCSS(projectPath) {
-    console.log('Setting up TailwindCSS...');
-    execSync('bun add -D tailwindcss postcss autoprefixer', {
-        cwd: projectPath,
-        stdio: 'inherit',
-    });
-
-    // Configure TailwindCSS
-    const tailwindConfig = `/** @type {import('tailwindcss').Config} */
-export default {
-  content: ['./src/**/*.{html,js,svelte,ts}'],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}`;
-    fs.writeFileSync(path.join(projectPath, 'tailwind.config.js'), tailwindConfig);
-
-    // Create postcss.config.js
-    const postcssConfig = `export default {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
-}`;
-    fs.writeFileSync(path.join(projectPath, 'postcss.config.js'), postcssConfig);
-
-    // Update global.css
-    const stylesPath = path.join(projectPath, 'src/app.css');
-    fs.writeFileSync(stylesPath, welcomePageContent.styles);
-}
-
 function createFolderStructure(projectPath) {
     const folderStructure = JSON.parse(
         fs.readFileSync(path.join(__dirname, 'svelteFolderStructure.json'), 'utf-8')
@@ -62,33 +30,14 @@ function createFolderStructure(projectPath) {
     });
 }
 
+function setupTailwindCSS(projectPath) {
+    console.log('Setting up TailwindCSS...');
+}
+
 function updateAppComponent(projectPath, projectName, creationDate) {
     // Update App.svelte
     const appPath = path.join(projectPath, 'src/App.svelte');
-    const appContent = `<script lang="ts">
-    let count = 0;
-</script>
-
-${welcomePageContent.html
-            .replace('{{projectName}}', projectName)
-            .replace('{{creationDate}}', creationDate)
-            .replace('{{filePath}}', 'src/App.svelte')
-            .replace('{{clickHandler}}', 'on:click={() => count++}')
-            .replace('{{count}}', '{count}')}
-
-<style>
-    @import './app.css';
-</style>`;
-    fs.writeFileSync(appPath, appContent);
-
-    // Update index.html
-    const indexPath = path.join(projectPath, 'index.html');
-    const indexContent = fs.readFileSync(indexPath, 'utf-8');
-    const updatedIndexContent = indexContent.replace(
-        /<title>.*?<\/title>/,
-        `<title>${projectName}</title>`
-    );
-    fs.writeFileSync(indexPath, updatedIndexContent);
+    const appContent = `${creationDate} ${projectName}`;
 }
 
 function displayNextSteps(projectName) {

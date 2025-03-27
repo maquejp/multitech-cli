@@ -10,44 +10,12 @@ const __dirname = path.dirname(__filename);
 function initializeProject(name) {
   console.log('Creating new Vue project...');
   execSync(
-    `bun create vue@latest ${name} -- --ts --router --pinia --eslint --prettier`,
+    `bun create vue@latest ${name} --ts --router --pinia --eslint --prettier`,
     {
       stdio: 'inherit',
     }
   );
   return path.join(process.cwd(), name);
-}
-
-function setupTailwindCSS(projectPath) {
-  console.log('Setting up TailwindCSS...');
-  execSync('bun add -D tailwindcss postcss autoprefixer', {
-    cwd: projectPath,
-    stdio: 'inherit',
-  });
-
-  // Initialize TailwindCSS
-  execSync('npx tailwindcss init -p', {
-    cwd: projectPath,
-    stdio: 'inherit',
-  });
-
-  // Configure TailwindCSS
-  const tailwindConfig = `/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}`;
-  fs.writeFileSync(path.join(projectPath, 'tailwind.config.js'), tailwindConfig);
-
-  // Update assets/main.css
-  const stylesPath = path.join(projectPath, 'src/assets/main.css');
-  fs.writeFileSync(stylesPath, welcomePageContent.vue.styles);
 }
 
 function createFolderStructure(projectPath) {
@@ -62,40 +30,21 @@ function createFolderStructure(projectPath) {
   });
 }
 
+function setupTailwindCSS(projectPath) {
+  console.log('Setting up TailwindCSS...');
+}
+
 function updateAppComponent(projectPath, projectName, creationDate) {
+  // update App.vue
   const appPath = path.join(projectPath, 'src/App.vue');
-  const appContent = `<script setup lang="ts">
-import { ref } from 'vue'
-
-const count = ref(0)
-</script>
-
-<template>
-    ${welcomePageContent.vue.html
-      .replace('{{projectName}}', projectName)
-      .replace('{{creationDate}}', creationDate)
-      .replace('{{filePath}}', 'src/App.vue')
-      .replace('{{clickHandler}}', '@click="count++"')
-      .replace('{{count}}', '{{ count }}')}
-</template>
-
-<style scoped>
-.projectName {
-    content: '${projectName}';
-}
-.creationDate {
-    content: '${creationDate}';
-}
-</style>`;
-  fs.writeFileSync(appPath, appContent);
+  const appContent = `${creationDate} ${projectName}`;
 }
 
 function displayNextSteps(projectName) {
   console.log('\nVue project created successfully! 🎉');
   console.log(`\nNext steps:
 1. cd ${projectName}
-2. bun install
-3. bun run dev`);
+2. bun run dev`);
 }
 
 export default async function createVueProject({ projectName }) {

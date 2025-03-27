@@ -18,22 +18,6 @@ function initializeProject(name) {
     return path.join(process.cwd(), name);
 }
 
-function setupTailwindCSS(projectPath) {
-    console.log('Setting up TailwindCSS...');
-    execSync('bun add --silent tailwindcss @tailwindcss/postcss postcss', {
-        cwd: projectPath,
-        stdio: 'inherit',
-    });
-
-    // Create postcss.config.js
-    const postcssConfig = `{  "plugins": {    "@tailwindcss/postcss": {}  }}`;
-    fs.writeFileSync(path.join(projectPath, '.postcssrc.json'), postcssConfig);
-
-    // Update styles.css
-    const stylesPath = path.join(projectPath, 'src/styles.css');
-    fs.writeFileSync(stylesPath, '@import "tailwindcss";\n');
-}
-
 function createFolderStructure(projectPath) {
     const folderStructure = JSON.parse(
         fs.readFileSync(path.join(__dirname, 'angularFolderStructure.json'), 'utf-8')
@@ -46,34 +30,14 @@ function createFolderStructure(projectPath) {
     });
 }
 
+function setupTailwindCSS(projectPath) {
+    console.log('Setting up TailwindCSS...');
+}
+
 function updateAppComponent(projectPath, projectName, creationDate) {
+    // Update app.component.ts
     const appComponentPath = path.join(projectPath, 'src/app/app.component.ts');
-    const appComponentContent = `import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-  title = '${projectName}';
-  creationDate = '${creationDate}';
-  count = 0;
-
-  incrementCount() {
-    this.count++;
-  }
-}`;
-    fs.writeFileSync(appComponentPath, appComponentContent);
-
-    const appComponentHtmlPath = path.join(projectPath, 'src/app/app.component.html');
-    const updatedContent = welcomePageContent.angular.html
-        .replace('{{projectName}}', projectName)
-        .replace('{{creationDate}}', creationDate)
-        .replace('{{filePath}}', 'src/app/app.component.html')
-        .replace('{{clickHandler}}', '(click)="incrementCount()"')
-        .replace('{{count}}', '{{count}}');
-    fs.writeFileSync(appComponentHtmlPath, updatedContent);
+    const appComponentContent = `${creationDate} ${projectName}`;
 }
 
 function updateIndexHtml(projectPath, projectName) {

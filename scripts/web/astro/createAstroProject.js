@@ -18,15 +18,6 @@ function initializeProject(name) {
   return path.join(process.cwd(), name);
 }
 
-function setupTailwindCSS(projectPath) {
-  console.log('Setting up TailwindCSS...');
-  execSync('bun astro add tailwind -y', {
-    cwd: projectPath,
-    stdio: 'inherit',
-  });
-
-}
-
 function createFolderStructure(projectPath) {
   const folderStructure = JSON.parse(
     fs.readFileSync(path.join(__dirname, 'astroFolderStructure.json'), 'utf-8')
@@ -40,33 +31,14 @@ function createFolderStructure(projectPath) {
   });
 }
 
-function updateIndexPage(projectPath, projectName, creationDate) {
+function setupTailwindCSS(projectPath) {
+  console.log('Setting up TailwindCSS...');
+}
 
+function updateIndexPage(projectPath, projectName, creationDate) {
   // Update index.astro
   const indexPath = path.join(projectPath, 'src/pages/index.astro');
-  const indexContent = `---
-import Layout from '../layouts/Layout.astro';
----
-
-<Layout title="${projectName}">
-    ${welcomePageContent.astro.html
-      .replace('{{projectName}}', projectName)
-      .replace('{{creationDate}}', creationDate)
-      .replace('{{filePath}}', 'src/pages/index.astro')
-    }
-</Layout>`;
-  fs.writeFileSync(indexPath, indexContent);
-
-  // Update Layout.astro
-  const layoutPath = path.join(projectPath, 'src/layouts/Layout.astro');
-  const layoutContent = fs.readFileSync(layoutPath, "utf-8");
-  const updatedLayoutContent =
-    '---\n import "../styles/global.css";\n ---\n\n' +
-    layoutContent.replace(
-      /<title>.*<\/title>/,
-      `<title>${projectName}</title>`
-    );
-  fs.writeFileSync(layoutPath, updatedLayoutContent, "utf-8");
+  const indexContent = `${creationDate} ${projectName}`;
 }
 
 function displayNextSteps(projectName) {
