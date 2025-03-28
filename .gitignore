@@ -11,3 +11,4 @@ backend-express-app
 backend-springboot-app
 backend-apiplatform-app
 database-postgresql-app
+database-mariadb-app
