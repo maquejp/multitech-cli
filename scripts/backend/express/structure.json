@@ -1,0 +1,32 @@
+{
+    "folders": [
+        {
+            "path": "src",
+            "description": "# Source Code\n\nThis is the main source code directory containing all application components.\n\n## Purpose\n- Application entry point\n- Core application setup\n- Main application configuration\n- Global middleware setup"
+        },
+        {
+            "path": "src/controllers",
+            "description": "# Controllers\n\nThis directory contains the route controllers for the application. Controllers handle the business logic and data processing for each route.\n\n## Purpose\n- Handle specific route logic\n- Process request data\n- Call appropriate services\n- Return formatted responses\n\n## Example\n\\`\\`\\`javascript\n// Example controller structure\nexport const getItems = async (req, res) => {\n  try {\n    // Business logic here\n    res.json({ items: [] });\n  } catch (error) {\n    res.status(500).json({ error: error.message });\n  }\n};\n\\`\\`\\`"
+        },
+        {
+            "path": "src/models",
+            "description": "# Models\n\nThis directory contains the data models for the application. Models define the structure and behavior of your data.\n\n## Purpose\n- Define data schema\n- Include data validation\n- Handle data relationships\n- Implement data access methods\n\n## Example\n\\`\\`\\`javascript\n// Example model structure\nexport class User {\n  constructor(data) {\n    this.id = data.id;\n    this.name = data.name;\n    this.email = data.email;\n  }\n\n  validate() {\n    // Validation logic\n  }\n}\n\\`\\`\\`"
+        },
+        {
+            "path": "src/routes",
+            "description": "# Routes\n\nThis directory contains the route definitions for the API. Routes map URLs to their corresponding controllers.\n\n## Purpose\n- Define API endpoints\n- Map routes to controllers\n- Include route middleware\n- Handle route parameters\n\n## Example\n\\`\\`\\`javascript\nimport express from 'express';\nimport { getItems } from '../controllers/itemController.js';\n\nconst router = express.Router();\n\nrouter.get('/', getItems);\n\nexport default router;\n\\`\\`\\`"
+        },
+        {
+            "path": "src/middleware",
+            "description": "# Middleware\n\nThis directory contains custom middleware functions for the application. Middleware processes requests before they reach the route handlers.\n\n## Purpose\n- Process incoming requests\n- Modify request/response objects\n- Handle authentication/authorization\n- Perform logging or monitoring\n\n## Example\n\\`\\`\\`javascript\n// Example middleware structure\nexport const authMiddleware = (req, res, next) => {\n  // Authentication logic\n  next();\n};\n\\`\\`\\`"
+        },
+        {
+            "path": "src/config",
+            "description": "# Configuration\n\nThis directory contains configuration files for different environments and application settings.\n\n## Purpose\n- Define environment variables\n- Set up database connections\n- Configure third-party services\n- Define application constants\n\n## Example\n\\`\\`\\`javascript\n// Example configuration structure\nexport const config = {\n  database: {\n    host: process.env.DB_HOST,\n    port: process.env.DB_PORT,\n  },\n  api: {\n    version: 'v1',\n    prefix: '/api',\n  },\n};\n\\`\\`\\`"
+        },
+        {
+            "path": "src/utils",
+            "description": "# Utilities\n\nThis directory contains utility functions and helper methods used throughout the application.\n\n## Purpose\n- Be pure functions when possible\n- Handle common operations\n- Provide reusable functionality\n- Include proper documentation\n\n## Example\n\\`\\`\\`javascript\n// Example utility function\nexport const formatDate = (date) => {\n  return new Date(date).toLocaleDateString();\n};\n\\`\\`\\`"
+        }
+    ]
+}
