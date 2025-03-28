@@ -1,5 +1,5 @@
 import createOracleProject from "./database/createOracleProject.js";
-import createMongoDBProject from "./database/createMongoDBProject.js";
+import createMongoDBProject from "./database/mongodb/createMongoDBProject.js";
 import createMariaDBProject from "./database/mariadb/createMariaDBProject.js";
 import createPostgreSQLProject from "./database/postgresql/createPostgreSQLProject.js";
 
