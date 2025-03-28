@@ -63,6 +63,7 @@ export default async function ({ projectName }) {
     console.log("2. docker compose up --build");
     console.log("3. Access the API at http://localhost:8086");
     console.log("4. Access the API documentation at http://localhost:8086/api");
+    console.log("5. Access the test at http://localhost:8086/hello-api");
   } catch (error) {
     console.error("Error creating API Platform project:", error);
     process.exit(1);
