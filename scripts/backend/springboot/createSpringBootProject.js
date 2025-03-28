@@ -22,6 +22,9 @@ export default async function ({ projectName }) {
     }
     fs.mkdirSync(projectDir);
 
+    // Convert project name to package name format (dashes to underscores)
+    const packageName = projectName.replace(/-/g, "_");
+
     // Spring Initializr API parameters
     const params = {
       type: "maven-project",
@@ -33,7 +36,7 @@ export default async function ({ projectName }) {
       description: `Spring Boot project for ${projectName
         .replace(/[_-]/g, " ")
         .replace(/\b\w/g, (char) => char.toUpperCase())}`,
-      packageName: `net.maquestiaux.${projectName}`,
+      packageName: `net.maquestiaux.${packageName}`,
       packaging: "jar",
       javaVersion: "21",
       dependencies: "web,devtools",
@@ -68,6 +71,57 @@ export default async function ({ projectName }) {
               stdio: "inherit",
               env: { ...process.env, JAVA_HOME: javaHome },
             });
+
+            // Create additional directory structure and READMEs
+            const structure = JSON.parse(
+              fs.readFileSync(
+                path.join(__dirname, "springbootFolderStructure.json"),
+                "utf-8"
+              )
+            );
+
+            // Convert groupId dots to slashes and create the full package path
+            const groupIdPath = params.groupId.replace(/\./g, "/");
+            const packagePath = `${groupIdPath}/${packageName}`;
+
+            structure.folders.forEach((folder) => {
+              const folderPath = path.join(
+                projectDir,
+                folder.path.replace(/{{groupId}}/g, packagePath)
+              );
+              fs.mkdirSync(folderPath, { recursive: true });
+              fs.writeFileSync(
+                path.join(folderPath, "README.md"),
+                folder.description
+              );
+            });
+
+            // Create WelcomeController from template
+            const controllerPath = path.join(
+              projectDir,
+              "src/main/java",
+              packagePath,
+              "controller/WelcomeController.java"
+            );
+
+            const templatePath = path.join(
+              __dirname,
+              "templates/WelcomeController.java.template"
+            );
+            let controllerContent = fs.readFileSync(templatePath, "utf-8");
+
+            // Replace placeholders in template
+            controllerContent = controllerContent
+              .replace(/{{packageName}}/g, `net.maquestiaux.${packageName}`)
+              .replace(
+                /{{formattedProjectName}}/g,
+                projectName
+                  .replace(/-/g, " ")
+                  .replace(/\b\w/g, (char) => char.toUpperCase())
+              );
+
+            fs.writeFileSync(controllerPath, controllerContent);
+
             console.log("\nSpringboot project created successfully!");
             console.log("\nNext steps:");
             console.log(`1. cd ${projectName}`);

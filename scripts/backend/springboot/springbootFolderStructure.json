@@ -1,0 +1,48 @@
+{
+    "folders": [
+        {
+            "path": "src/main/java/{{groupId}}",
+            "description": "# Main Package\n\nThis directory contains the main package for the application.\n\n## Purpose\n- Main application classes\n- Business logic\n- Service implementations\n- Controllers\n- Models"
+        },
+        {
+            "path": "src/main/java/{{groupId}}/controller",
+            "description": "# Controllers\n\nThis directory contains REST controllers that handle HTTP requests.\n\n## Purpose\n- REST endpoints\n- Request/response handling\n- Input validation\n- Response formatting\n\n## Best Practices\n- Use appropriate HTTP methods (GET, POST, PUT, DELETE)\n- Implement proper error handling\n- Use DTOs for request/response\n- Follow REST naming conventions"
+        },
+        {
+            "path": "src/main/java/{{groupId}}/service",
+            "description": "# Services\n\nThis directory contains business logic and service implementations.\n\n## Purpose\n- Business logic implementation\n- Data processing\n- External service integration\n- Transaction management\n\n## Best Practices\n- Keep services focused and single-responsibility\n- Use interfaces for better testability\n- Implement proper error handling\n- Use appropriate transaction boundaries"
+        },
+        {
+            "path": "src/main/java/{{groupId}}/repository",
+            "description": "# Repositories\n\nThis directory contains data access layer implementations.\n\n## Purpose\n- Database operations\n- Entity management\n- Query implementations\n- Data persistence\n\n## Best Practices\n- Use Spring Data JPA repositories\n- Implement custom queries when needed\n- Use appropriate fetch strategies\n- Handle database-specific operations"
+        },
+        {
+            "path": "src/main/java/{{groupId}}/model",
+            "description": "# Models\n\nThis directory contains domain models and entities.\n\n## Purpose\n- Entity classes\n- DTOs (Data Transfer Objects)\n- Value objects\n- Domain models\n\n## Best Practices\n- Use JPA annotations appropriately\n- Implement proper validation\n- Use Lombok for reducing boilerplate\n- Keep entities focused and clean"
+        },
+        {
+            "path": "src/main/java/{{groupId}}/config",
+            "description": "# Configuration\n\nThis directory contains application configuration classes.\n\n## Purpose\n- Bean configurations\n- Security settings\n- Database configuration\n- External service configuration\n\n## Best Practices\n- Use configuration properties\n- Implement proper security measures\n- Use profiles for different environments\n- Keep configurations modular"
+        },
+        {
+            "path": "src/main/java/{{groupId}}/exception",
+            "description": "# Exceptions\n\nThis directory contains custom exceptions and error handling.\n\n## Purpose\n- Custom exception classes\n- Global exception handlers\n- Error response models\n- Exception utilities\n\n## Best Practices\n- Create specific exception types\n- Implement proper error messages\n- Use appropriate HTTP status codes\n- Log exceptions properly"
+        },
+        {
+            "path": "src/main/java/{{groupId}}/util",
+            "description": "# Utilities\n\nThis directory contains utility classes and helper methods.\n\n## Purpose\n- Helper methods\n- Constants\n- Common utilities\n- Shared functionality\n\n## Best Practices\n- Keep utilities stateless\n- Make methods pure when possible\n- Document public methods\n- Use appropriate access modifiers"
+        },
+        {
+            "path": "src/main/resources",
+            "description": "# Resources\n\nThis directory contains application resources and configuration files.\n\n## Purpose\n- Application properties\n- Static resources\n- Templates\n- Configuration files\n\n## Best Practices\n- Use YAML for complex configurations\n- Separate properties by environment\n- Keep sensitive data secure\n- Use appropriate file formats"
+        },
+        {
+            "path": "src/test/java/{{groupId}}",
+            "description": "# Test Source Code\n\nThis directory contains test classes for the application.\n\n## Purpose\n- Unit tests\n- Integration tests\n- Test utilities\n- Mock data\n\n## Best Practices\n- Follow testing pyramid\n- Use appropriate testing frameworks\n- Write meaningful test cases\n- Maintain test data properly"
+        },
+        {
+            "path": "src/test/resources",
+            "description": "# Test Resources\n\nThis directory contains resources specific to testing.\n\n## Purpose\n- Test properties\n- Test data files\n- Mock configurations\n- Test utilities\n\n## Best Practices\n- Keep test data isolated\n- Use appropriate test databases\n- Maintain test configurations\n- Follow testing conventions"
+        }
+    ]
+}
