@@ -1,17 +1,18 @@
-import { execSync } from "child_process";
 import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
 import createExpressProject from "./backend/express/createExpressProject.js";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import createSpringBootProject from "./backend/springboot/createSpringBootProject.js";
 
 const frameworks = {
   express: {
     name: "Express.js",
     description: "A minimal and flexible Node.js web application framework",
     create: createExpressProject,
+  },
+  springboot: {
+    name: "Spring Boot",
+    description:
+      "Java-based framework for creating enterprise-grade applications",
+    create: createSpringBootProject,
   },
   // Add more backend frameworks here as needed
 };

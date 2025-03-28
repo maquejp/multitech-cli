@@ -1,4 +1,88 @@
+import fs, { unlink } from "fs";
+import path from "path";
+import { execSync } from "child_process";
+import https from "https";
+import extract from "extract-zip";
+
+const javaPath = execSync(
+  process.platform === "win32" ? "where java" : "which java"
+)
+  .toString()
+  .trim();
+const javaHome = path.dirname(path.dirname(javaPath));
+
 export default async function ({ projectName }) {
-    console.log(`Creating a Spring Boot project named ${projectName}...`);
-    // Logic to create a Spring Boot project goes here
+  console.log(`Creating a Spring Boot project named ${projectName}...`);
+
+  try {
+    // Create project directory
+    const projectDir = path.join(process.cwd(), projectName);
+    if (fs.existsSync(projectDir)) {
+      throw new Error(`Directory ${projectName} already exists`);
+    }
+    fs.mkdirSync(projectDir);
+
+    // Spring Initializr API parameters
+    const params = {
+      type: "maven-project",
+      language: "java",
+      bootVersion: "3.4.4",
+      groupId: "net.maquestiaux",
+      artifactId: projectName,
+      name: projectName,
+      description: `Spring Boot project for ${projectName
+        .replace(/[_-]/g, " ")
+        .replace(/\b\w/g, (char) => char.toUpperCase())}`,
+      packageName: `net.maquestiaux.${projectName}`,
+      packaging: "jar",
+      javaVersion: "21",
+      dependencies: "web,devtools",
+    };
+
+    const springBootUrl = new URL("https://start.spring.io/starter.zip");
+
+    // Append parameters to the URL's search parameters
+    Object.keys(params).forEach((key) => {
+      springBootUrl.searchParams.append(key, params[key]);
+    });
+
+    https
+      .get(springBootUrl, (response) => {
+        if (response.statusCode !== 200) {
+          throw new Error(
+            `Failed to download Spring Boot project: ${response.statusMessage}`
+          );
+        }
+        const zipFilePath = path.join(projectDir, "project.zip");
+        const file = fs.createWriteStream(zipFilePath);
+        response.pipe(file);
+        file.on("finish", async () => {
+          console.log("ZIP file downloaded.");
+          extract(zipFilePath, { dir: projectDir }).then(() => {
+            console.log("ZIP file extracted.");
+            fs.unlinkSync(zipFilePath);
+            console.log("Setting execute permissions for mvnw...");
+            execSync(`chmod +x ${projectDir}/mvnw`);
+            execSync(`./mvnw wrapper:wrapper`, {
+              cwd: projectDir,
+              stdio: "inherit",
+              env: { ...process.env, JAVA_HOME: javaHome },
+            });
+            console.log("\nSpringboot project created successfully!");
+            console.log("\nNext steps:");
+            console.log(`1. cd ${projectName}`);
+            console.log(`2. export JAVA_HOME=(which java)`);
+            console.log("3. `./mvnw spring-boot:run` to start the server");
+            console.log("4. Go to http://localhost:8080");
+          });
+        });
+
+        file.on("error", (fileError) => {
+          throw new Error(`File write error: ${fileError}`);
+        });
+      })
+      .on("error", (err) => console.log(`Download error: ${err}`));
+  } catch (error) {
+    throw error;
+  }
 }

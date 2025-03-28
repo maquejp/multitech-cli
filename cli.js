@@ -10,7 +10,7 @@ import createDatabaseProject from "./scripts/createDatabaseProject.js";
 const categories = {
   web: ["angular", "react", "astro", "vue", "svelte"],
   database: ["oracle", "mongodb", "mariadb", "postgresql"],
-  backend: ["express"],
+  backend: ["express", "springboot"],
   mobile: ["flutter", "reactnative", "ionic"],
 };
 
