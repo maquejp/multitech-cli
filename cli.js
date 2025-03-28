@@ -8,10 +8,10 @@ import createBackendProject from "./scripts/createBackendProject.js";
 import createDatabaseProject from "./scripts/createDatabaseProject.js";
 
 const categories = {
-  web: ["angular", "react", "astro", "vue", "svelte"],
-  database: ["oracle", "mongodb", "mariadb", "postgresql"],
-  backend: ["express", "springboot"],
-  mobile: ["flutter", "reactnative", "ionic"],
+  backend: ["apiplatform", "express", "springboot"],
+  database: ["mariadb", "mongodb", "oracle", "postgresql"],
+  mobile: ["flutter", "ionic", "reactnative"],
+  web: ["angular", "astro", "react", "svelte", "vue"],
 };
 
 async function main() {

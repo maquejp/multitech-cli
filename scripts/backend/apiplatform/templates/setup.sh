@@ -11,7 +11,7 @@ if [ ! -d "/var/www/api/public" ]; then
     symfony console make:controller --with-tests  HelloWordController
     symfony console make:controller --with-tests  HelloWordApiController
 
-    # Modify the controller to return JSON response
+    # Modify the controller to return JSON response with project name
     cat <<EOL > ./src/Controller/HelloWorldApiController.php
 <?php
 
@@ -26,7 +26,8 @@ class HelloWorldApiController extends AbstractController
     #[Route('/hello-api', name: 'api_hello_world', methods: ['GET'])]
     public function index(): JsonResponse
     {
-        return \$this->json(['message' => 'Hello, World From the API!']);
+        \$projectName = getenv('PROJECT_NAME') ?: 'my-api-platform';
+        return \$this->json(['message' => "Welcome to \${projectName} API Platform!"]);
     }
 }
 EOL

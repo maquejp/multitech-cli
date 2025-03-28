@@ -1,6 +1,7 @@
 import fs from "fs";
 import createExpressProject from "./backend/express/createExpressProject.js";
 import createSpringBootProject from "./backend/springboot/createSpringBootProject.js";
+import createAPIPlatformProject from "./backend/apiplatform/createAPIPlatformProject.js";
 
 const frameworks = {
   express: {
@@ -13,6 +14,12 @@ const frameworks = {
     description:
       "Java-based framework for creating enterprise-grade applications",
     create: createSpringBootProject,
+  },
+  apiplatform: {
+    name: "API Platform",
+    description:
+      "A Symfony-based framework for building web APIs with GraphQL and REST support",
+    create: createAPIPlatformProject,
   },
   // Add more backend frameworks here as needed
 };

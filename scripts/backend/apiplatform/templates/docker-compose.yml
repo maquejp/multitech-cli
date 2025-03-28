@@ -1,6 +1,8 @@
 services:
   php:
-    image: multitech-apiplatform:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: multitech-apiplatform-server
     networks:
       - multitech-common-network
@@ -9,6 +11,7 @@ services:
       - ./setup.sh:/setup.sh # Mount the setup script
     environment:
       - DATABASE_URL=mysql://user:password@multitech-mariadb-server:3306/database_name?serverVersion=mariadb-10.6
+      - PROJECT_NAME=${PROJECT_NAME:-my-api-platform} # Default value if not set
     ports:
       - "8086:80"
     command: /bin/bash /setup.sh # Execute the script as the container command
