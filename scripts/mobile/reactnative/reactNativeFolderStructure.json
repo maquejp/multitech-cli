@@ -1,0 +1,36 @@
+{
+    "folders": [
+        {
+            "path": "src/components",
+            "description": "Reusable UI components"
+        },
+        {
+            "path": "src/screens",
+            "description": "Screen components"
+        },
+        {
+            "path": "src/navigation",
+            "description": "Navigation configuration"
+        },
+        {
+            "path": "src/services",
+            "description": "API and other services"
+        },
+        {
+            "path": "src/utils",
+            "description": "Utility functions and helpers"
+        },
+        {
+            "path": "src/assets",
+            "description": "Images, fonts, and other static assets"
+        },
+        {
+            "path": "src/hooks",
+            "description": "Custom React hooks"
+        },
+        {
+            "path": "src/types",
+            "description": "TypeScript type definitions"
+        }
+    ]
+}
