@@ -1,48 +1,28 @@
 {
     "folders": [
         {
-            "path": "src/assets",
-            "description": "# Assets\n\nThis directory contains static assets like images, fonts, and icons."
+            "path": "app",
+            "description": "# App\n\nContains the app's navigation, which is file-based. The file structure of the app directory determines the app's navigation.\n\nThe app has two routes defined by two files: app/(tabs)/index.tsx and app/(tabs)/explore.tsx. The layout file in app/(tabs)/_layout.tsx sets up the tab navigator."
         },
         {
-            "path": "src/components",
-            "description": "# Components\n\nThis directory contains reusable React components.\n\n## Purpose\n- Shared UI components\n- Layout components\n- Feature-specific components\n- Component utilities"
+            "path": "assets",
+            "description": "# Assets\n\nThe assets directory contains adaptive-icon.png used for Android and an icon.png used for iOS as app icons. It also contains splash.png which is an image for the project's splash screen and a favicon.png if the app runs in a browser."
         },
         {
-            "path": "src/screens",
-            "description": "# Screens\n\nThis directory contains individual screens for the app.\n\n## Purpose\n- Organize app views/pages\n- Group screens by feature when needed"
+            "path": "components",
+            "description": "# Components\n\nContains React Native components, like ThemedText.tsx, which creates text elements that use the app's color scheme in light and dark modes."
         },
         {
-            "path": "src/navigation",
-            "description": "# Navigation\n\nThis directory contains navigation-related files, such as stack navigators and tab navigators."
+            "path": "constants",
+            "description": "# Constants\n\nContains Colors.ts, which contains a list of color values throughout the app."
         },
         {
-            "path": "src/hooks",
-            "description": "# Hooks\n\nThis directory contains custom React hooks to reuse logic across the app."
+            "path": "hooks",
+            "description": "# Hooks\n\nContains React Hooks, which allows sharing common behavior between components. For example, useThemeColor() is a hook that returns a color based on the current theme."
         },
         {
-            "path": "src/context",
-            "description": "# Context\n\nThis directory contains Context API providers and hooks for global state management."
-        },
-        {
-            "path": "src/redux",
-            "description": "# Redux\n\nThis directory contains Redux store configuration, slices, and actions.\n\n## Structure\n- `slices/` - Redux slices\n- `store.ts` - Store setup"
-        },
-        {
-            "path": "src/services",
-            "description": "# Services\n\nThis directory contains API service files and other app-specific utilities.\n\n## Purpose\n- API calls (e.g., Axios fetchers)\n- AsyncStorage interactions\n- Authentication handling"
-        },
-        {
-            "path": "src/utils",
-            "description": "# Utils\n\nThis directory contains helper functions and utility files used across the app."
-        },
-        {
-            "path": "src/constants",
-            "description": "# Constants\n\nThis directory contains global constants like color themes, fonts, and app configurations."
-        },
-        {
-            "path": "src/styles",
-            "description": "# Styles\n\nThis directory contains global styles and theme definitions."
+            "path": "scripts",
+            "description": "# Hooks\n\nContains reset-project.js, which can be run with npm run reset-project. This script will move the app directory to app-example, and create a new app directory with an index.tsx file."
         }
     ]
 }

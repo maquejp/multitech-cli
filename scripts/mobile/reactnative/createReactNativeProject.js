@@ -8,12 +8,9 @@ const __dirname = path.dirname(__filename);
 
 function initializeProject(name) {
   console.log("Creating new React Native project...");
-  execSync(
-    `npx react-native@latest init ${name} --template react-native-template-typescript`,
-    {
-      stdio: "inherit",
-    }
-  );
+  execSync(`bun create expo@latest ${name}`, {
+    stdio: "inherit",
+  });
   return path.join(process.cwd(), name);
 }
 
@@ -31,64 +28,44 @@ function createFolderStructure(projectPath) {
   });
 }
 
-function setupNavigation(projectPath) {
-  console.log("Setting up React Navigation...");
-  execSync(
-    "bun add @react-navigation/native @react-navigation/native-stack react-native-screens react-native-safe-area-context",
-    {
-      stdio: "inherit",
-      cwd: projectPath,
-    }
-  );
-}
-
 function updateProject(projectPath, projectName, creationDate) {
   // Update App.tsx with a basic template
-  const appPath = path.join(projectPath, "App.tsx");
-  let appContent = fs.readFileSync(
-    path.join(__dirname, "templates", "App.tsx.template"),
-    "utf-8"
-  );
+  const appPath = path.join(projectPath, "app/(tabs)/index.tsx");
+  let appContent = fs.readFileSync(appPath, "utf-8");
 
   // Replace template variables
-  appContent = appContent
-    .replace(/{{projectName}}/g, projectName)
-    .replace(/{{creationDate}}/g, creationDate);
+  appContent = appContent.replace(
+    /Welcome!/g,
+    "Welcome to " +
+      projectName
+        .replace(/[_-]/g, " ")
+        .replace(/\b\w/g, (char) => char.toUpperCase()) +
+      " Created on: " +
+      creationDate +
+      " !"
+  );
 
   fs.writeFileSync(appPath, appContent, "utf-8");
 }
 
 function displayNextSteps(projectName) {
   console.log("\nReact Native project created successfully! 🎉");
-  console.log(`\nNext steps:
-1. cd ${projectName}
-2. For iOS:
-   - cd ios && pod install && cd ..
-   - bun run ios
-3. For Android:
-   - bun run android
-4. For development:
-   - bun start`);
+  console.log(
+    `\nNext steps:\n1. cd ${projectName}\n2. For iOS:\n\t- bun run ios\n3. For Android:\n\t- bun run android\n4. For Web:\n\t- bun run web\n5. For development:\n\t- bun start`
+  );
 }
 
 export default async function createProject({ projectName }) {
   try {
     // Get creation date
     const creationDate = new Date().toLocaleString();
-
     // 1. Initialize the project
     const projectPath = initializeProject(projectName);
-
-    // 2. Setup navigation
-    setupNavigation(projectPath);
-
-    // 3. Create recommended folder structure
+    // 2. Create recommended folder structure
     createFolderStructure(projectPath);
-
-    // 4. Update project with minimal implementation
+    // 3. Update project with minimal implementation
     updateProject(projectPath, projectName, creationDate);
-
-    // 5. Display next steps
+    // 4. Display next steps
     displayNextSteps(projectName);
   } catch (error) {
     console.error("Error creating React Native project:", error);
