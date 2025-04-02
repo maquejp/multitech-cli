@@ -60,4 +60,12 @@ To add a new project template:
 - Keep templates up to date with latest best practices
 - Document any special configuration requirements
 - Include clear setup instructions in generated projects
-- Maintain consistent structure across templates 
+- Maintain consistent structure across templates
+
+## Contributing
+
+Please read the main project's [CONTRIBUTING.md](../../CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+## License
+
+This project is licensed under the MIT License - see the main project's [LICENSE.md](../../LICENSE.md) for details. 
