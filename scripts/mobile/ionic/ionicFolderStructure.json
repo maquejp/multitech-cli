@@ -1,0 +1,84 @@
+{
+    "folders": [
+        {
+            "path": "src/app/components",
+            "description": "Reusable UI components for the application"
+        },
+        {
+            "path": "src/app/pages",
+            "description": "Page components that represent different views in the application"
+        },
+        {
+            "path": "src/app/services",
+            "description": "Services for handling business logic and data operations"
+        },
+        {
+            "path": "src/app/guards",
+            "description": "Route guards for protecting routes and handling authentication"
+        },
+        {
+            "path": "src/app/interfaces",
+            "description": "TypeScript interfaces and type definitions"
+        },
+        {
+            "path": "src/app/models",
+            "description": "Data models and entities used throughout the application"
+        },
+        {
+            "path": "src/app/utils",
+            "description": "Utility functions and helper methods"
+        },
+        {
+            "path": "src/assets",
+            "description": "Static assets like images, fonts, and other media files"
+        },
+        {
+            "path": "src/theme",
+            "description": "Ionic theme customization and global styles"
+        },
+        {
+            "path": "src/environments",
+            "description": "Environment-specific configuration files"
+        },
+        {
+            "path": "src/app/constants",
+            "description": "Application-wide constants and configuration values"
+        },
+        {
+            "path": "src/app/pipes",
+            "description": "Angular pipes for data transformation"
+        },
+        {
+            "path": "src/app/directives",
+            "description": "Custom Angular directives"
+        },
+        {
+            "path": "src/app/resolvers",
+            "description": "Route resolvers for data pre-fetching"
+        },
+        {
+            "path": "src/app/store",
+            "description": "State management related files (if using NgRx or similar)"
+        },
+        {
+            "path": "src/app/animations",
+            "description": "Animation definitions and transitions"
+        },
+        {
+            "path": "src/app/validators",
+            "description": "Custom form validators"
+        },
+        {
+            "path": "src/app/interceptors",
+            "description": "HTTP interceptors for request/response handling"
+        },
+        {
+            "path": "src/app/error-handlers",
+            "description": "Global error handling and logging"
+        },
+        {
+            "path": "src/app/translations",
+            "description": "Internationalization (i18n) files"
+        }
+    ]
+}

@@ -15,3 +15,5 @@ database-mariadb-app
 database-mongodb-app
 database-oracle-app
 mobile-reactnative-app
+mobile-ionic-app
+mobile-flutter-app

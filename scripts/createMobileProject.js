@@ -1,6 +1,6 @@
 import createFlutterProject from "./mobile/createFlutterProject.js";
 import createReactNativeProject from "./mobile/reactnative/createReactNativeProject.js";
-import createIonicProject from "./mobile/createIonicProject.js";
+import createIonicProject from "./mobile/ionic/createIonicProject.js";
 
 export default async function ({ technology, projectName }) {
   console.log(`Creating a mobile project using ${technology}...`);
