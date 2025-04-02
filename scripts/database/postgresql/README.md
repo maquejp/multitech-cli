@@ -102,13 +102,8 @@ When using this template:
 
 ## Contributing
 
-To contribute to this template:
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+Please read the main project's [CONTRIBUTING.md](../../../CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
 ## License
 
-This template is part of the MultiTech CLI project and follows its licensing terms. 
+This project is licensed under the MIT License - see the main project's [LICENSE.md](../../../LICENSE.md) for details. 
