@@ -79,4 +79,12 @@ All templates include:
 - Set up monitoring and metrics
 - Maintain clear documentation
 - Follow framework-specific best practices
-- Regular security updates 
+- Regular security updates
+
+## Contributing
+
+Please read the main project's [CONTRIBUTING.md](../../../CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+## License
+
+This project is licensed under the MIT License - see the main project's [LICENSE.md](../../../LICENSE.md) for details. 
