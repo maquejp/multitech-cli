@@ -1,6 +1,6 @@
 # 🚀 Project CLI
 
-[![npm version](https://badge.fury.io/js/%maquejp%2Fproject-cli.svg)](https://badge.fury.io/js/%maquejp%2Fproject-cli)
+[![npm version](https://badge.fury.io/js/%@maquestiaux-devs%2Fmultitech-cli.svg)](https://badge.fury.io/js/%@maquestiaux-devs%2Fmultitech-cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/maquejp/multitech-cli/graphs/commit-activity)
@@ -30,7 +30,7 @@ This CLI tool helps developers quickly scaffold new projects across different ca
 ## 🚀 Installation
 
 ```bash
-npm install -g @maquestiaux/project-cli
+npm install -g @maquestiaux-devs/multitech-cli
 ```
 
 ## 💻 Usage
@@ -68,7 +68,7 @@ cli create mobile --technology flutter --name my-awesome-app
 The project follows this directory structure:
 
 ```
-project-cli/
+multitech-cli/
 ├── cli.js              # Main CLI entry point
 ├── scripts/            # Project generation scripts
 │   ├── web/            # Web project templates
