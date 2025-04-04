@@ -9,7 +9,7 @@
 > A powerful command-line interface tool for generating various types of projects with different technologies and frameworks.
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/maquejp/multitech-cli/assets/cli-logo.png" alt="Project CLI Logo" width="200"/>
+  <img src="https://raw.githubusercontent.com/maquejp/multitech-cli/main/assets/cli-logo.png" alt="Project CLI Logo" width="200"/>
   
   <p>
     <b>Project CLI</b> - Your all-in-one solution for project scaffolding
