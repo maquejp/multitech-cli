@@ -1,33 +1,33 @@
 {
-    "name": "project-cli",
+    "name": "@maquestiaux-devs/multitech-cli",
     "description": "This tool will help you create projects based on your selected category and technology.",
     "license": "MIT",
     "author": {
         "name": "Jean-Philippe Maquestiaux",
         "email": "maquejp@gmail.com",
-        "url": "https://github.com/maquejp/multi-techs-utility"
+        "url": "https://github.com/maquejp/multi-cli"
     },
     "version": "1.0.0",
     "type": "module",
     "bin": {
-        "project-cli": "./cli.js"
+        "multitech-cli": "./cli.js"
     },
     "scripts": {
         "start": "node cli.js",
-        "release:patch": "npm version patch && npm publish",
-        "release:minor": "npm version minor && npm publish",
-        "release:major": "npm version major && npm publish",
+        "release:patch": "npm version patch && npm publish --access=public",
+        "release:minor": "npm version minor && npm publish --access=public",
+        "release:major": "npm version major && npm publish --access=public",
         "test": "echo 'No tests yet' && exit 0",
         "prepublishOnly": "npm test",
         "postinstall": "chmod +x cli.js"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/maquejp/multi-techs-utility.git"
+        "url": "https://github.com/maquejp/multitech-cli.git"
     },
-    "homepage": "https://github.com/maquejp/multi-techs-utility#readme",
+    "homepage": "https://github.com/maquejp/multitech-cli#readme",
     "bugs": {
-        "url": "https://github.com/maquejp/multi-techs-utility/issues"
+        "url": "https://github.com/maquejp/multitech-cli/issues"
     },
     "keywords": [
         "cli",
