@@ -1,42 +1,29 @@
-# Web Project Templates
+# 🌐 Web Project Templates
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](../../../CONTRIBUTING.md)
 
 This directory contains templates for various web application frameworks and technologies. See the [main project documentation](../../README.md) for general information about the CLI tool.
 
-## Available Templates
+<div align="center">
+  <h3>Web Development Made Easy</h3>
+  <p>Choose your preferred framework and start building amazing web applications</p>
+</div>
 
-### [React](react/README.md)
-- Modern React application setup
-- Includes TypeScript support
-- Configured with Vite for fast development
-- Includes common development tools and configurations
+## 📚 Available Templates
 
-### [Vue](vue/README.md)
-- Vue.js application template
-- Supports Vue 3 with Composition API
-- Includes TypeScript configuration
-- Pre-configured with Vue Router and Pinia
+| Template | Description | Documentation |
+|----------|-------------|---------------|
+| ⚛️ [React](react/README.md) | Modern React application setup with TypeScript and Vite | [View](react/README.md) |
+| 🟢 [Vue](vue/README.md) | Vue.js application template with Vue 3 and Composition API | [View](vue/README.md) |
+| 🔴 [Angular](angular/README.md) | Full-featured Angular application with Material and NgRx | [View](angular/README.md) |
+| 🟡 [Svelte](svelte/README.md) | Svelte application template with SvelteKit | [View](svelte/README.md) |
+| 🟣 [Astro](astro/README.md) | Astro-based static site generator with multiple UI frameworks | [View](astro/README.md) |
 
-### [Angular](angular/README.md)
-- Full-featured Angular application
-- Includes Angular Material
-- Configured with NgRx for state management
-- Includes testing setup with Jasmine and Karma
-
-### [Svelte](svelte/README.md)
-- Svelte application template
-- Includes SvelteKit for full-stack development
-- Configured with TypeScript
-- Includes common Svelte utilities and components
-
-### [Astro](astro/README.md)
-- Astro-based static site generator
-- Supports multiple UI frameworks
-- Includes content collections setup
-- Configured for optimal performance
-
-## Template Structure
+## 📁 Template Structure
 
 Each template follows a consistent structure:
+
 ```
 template-name/
 ├── src/              # Source code
@@ -46,17 +33,17 @@ template-name/
 └── README.md         # Template-specific documentation
 ```
 
-## Features
+## ✨ Features
 
 All templates include:
-- Modern development setup
-- TypeScript configuration
-- Testing framework
-- Code formatting and linting
-- Build and deployment scripts
-- Documentation
+- 🚀 Modern development setup
+- 📝 TypeScript configuration
+- 🧪 Testing framework
+- 🔍 Code formatting and linting
+- 📦 Build and deployment scripts
+- 📚 Documentation
 
-## Usage
+## 💻 Usage
 
 These templates are used by the `createWebProject.js` script to generate new web projects. The script will:
 1. Copy the selected template
@@ -64,7 +51,7 @@ These templates are used by the `createWebProject.js` script to generate new web
 3. Configure the project
 4. Set up initial development environment
 
-## Customization
+## 🔧 Customization
 
 To customize a template:
 1. Navigate to the specific template directory
@@ -72,7 +59,7 @@ To customize a template:
 3. Update the corresponding configuration in `createWebProject.js`
 4. Test the template generation
 
-## Best Practices
+## ✅ Best Practices
 
 - Keep templates lightweight and focused
 - Include clear documentation
@@ -80,10 +67,16 @@ To customize a template:
 - Regular updates for security and performance
 - Follow framework-specific best practices
 
-## Contributing
+## 🤝 Contributing
 
 Please read the main project's [CONTRIBUTING.md](../../../CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
-## License
+## 📄 License
 
-This project is licensed under the MIT License - see the main project's [LICENSE.md](../../../LICENSE.md) for details. 
+This project is licensed under the MIT License - see the main project's [LICENSE.md](../../../LICENSE.md) for details.
+
+---
+
+<div align="center">
+  <sub>Part of the <a href="../../README.md">Project CLI</a> ecosystem</sub>
+</div> 
