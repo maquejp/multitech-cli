@@ -1,0 +1,104 @@
+{
+    "folders": [
+        {
+            "path": "lib",
+            "description": "# Lib\n\nThe main directory containing all Dart code for the application."
+        },
+        {
+            "path": "lib/core",
+            "description": "# Core\n\nContains common utilities, constants, error handling, and global dependencies."
+        },
+        {
+            "path": "lib/core/errors",
+            "description": "# Error handling and exceptions\n\nDefines custom exceptions and failure models."
+        },
+        {
+            "path": "lib/core/network",
+            "description": "# Network and API related code\n\nContains network utilities like Dio interceptors and API handling."
+        },
+        {
+            "path": "lib/core/theme",
+            "description": "# App theming and styling\n\nIncludes colors, typography, and global styling configurations."
+        },
+        {
+            "path": "lib/core/utils",
+            "description": "# Utility functions and helpers\n\nHelper methods for string formatting, date parsing, etc."
+        },
+        {
+            "path": "lib/core/usecases",
+            "description": "# Abstract use cases\n\nDefines use case contracts that interact with repositories."
+        },
+        {
+            "path": "lib/data",
+            "description": "# Data Layer\n\nHandles external data sources like APIs, databases, and local storage."
+        },
+        {
+            "path": "lib/data/models",
+            "description": "# Data Models\n\nDTOs (Data Transfer Objects) that map API responses to domain entities."
+        },
+        {
+            "path": "lib/data/repositories",
+            "description": "# Repository Implementations\n\nConcrete implementations of domain repositories, handling data fetching logic."
+        },
+        {
+            "path": "lib/data/sources",
+            "description": "# Data Sources\n\nResponsible for fetching data from remote APIs and local storage."
+        },
+        {
+            "path": "lib/data/sources/remote",
+            "description": "# Remote Data Sources\n\nHandles API calls and responses."
+        },
+        {
+            "path": "lib/data/sources/local",
+            "description": "# Local Data Sources\n\nHandles database and shared preferences."
+        },
+        {
+            "path": "lib/domain",
+            "description": "# Domain Layer\n\nContains pure business logic, independent of any external dependencies."
+        },
+        {
+            "path": "lib/domain/entities",
+            "description": "# Entities\n\nDefines core business objects without any dependencies."
+        },
+        {
+            "path": "lib/domain/repositories",
+            "description": "# Repository Interfaces\n\nDefines contracts that data repositories must implement."
+        },
+        {
+            "path": "lib/domain/usecases",
+            "description": "# Use Cases\n\nContains business logic operations such as FetchUsersUseCase."
+        },
+        {
+            "path": "lib/presentation",
+            "description": "# Presentation Layer\n\nHandles UI and state management."
+        },
+        {
+            "path": "lib/presentation/screens",
+            "description": "# Screens\n\nContains app screens organized by feature."
+        },
+        {
+            "path": "lib/presentation/widgets",
+            "description": "# Reusable UI Components\n\nShared UI components like buttons and text fields."
+        },
+        {
+            "path": "lib/presentation/bloc",
+            "description": "# Bloc State Management\n\nHandles application state using BLoC (or other state management solutions)."
+        },
+        {
+            "path": "assets",
+            "description": "# Assets\n\nContains static assets like images, fonts, and other resources used in the application."
+        },
+        {
+            "path": "assets/images",
+            "description": "# Image assets\n\nStores all image resources."
+        },
+        {
+            "path": "assets/fonts",
+            "description": "# Font assets\n\nStores custom font files."
+        },
+        {
+            "path": "assets/icons",
+            "description": "# Icon assets\n\nStores application icons."
+        }
+    ]
+}

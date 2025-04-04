@@ -1,4 +1,4 @@
-import createFlutterProject from "./mobile/createFlutterProject.js";
+import createFlutterProject from "./mobile/flutter/createFlutterProject.js";
 import createReactNativeProject from "./mobile/reactnative/createReactNativeProject.js";
 import createIonicProject from "./mobile/ionic/createIonicProject.js";
 
