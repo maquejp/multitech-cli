@@ -159,7 +159,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## 👤 Author
 
 **Jean-Philippe Maquestiaux**
-- 📧 Email: maquestiaux.jp@gmail.com
+- 📧 Email: maquejp@gmail.com
 - 🌐 GitHub: [maquejp](https://github.com/maquejp/multitech-cli)
 
 ---
