@@ -1,34 +1,34 @@
 # Web Project Templates
 
-This directory contains templates for various web application frameworks and technologies.
+This directory contains templates for various web application frameworks and technologies. See the [main project documentation](../../README.md) for general information about the CLI tool.
 
 ## Available Templates
 
-### React
+### [React](react/README.md)
 - Modern React application setup
 - Includes TypeScript support
 - Configured with Vite for fast development
 - Includes common development tools and configurations
 
-### Vue
+### [Vue](vue/README.md)
 - Vue.js application template
 - Supports Vue 3 with Composition API
 - Includes TypeScript configuration
 - Pre-configured with Vue Router and Pinia
 
-### Angular
+### [Angular](angular/README.md)
 - Full-featured Angular application
 - Includes Angular Material
 - Configured with NgRx for state management
 - Includes testing setup with Jasmine and Karma
 
-### Svelte
+### [Svelte](svelte/README.md)
 - Svelte application template
 - Includes SvelteKit for full-stack development
 - Configured with TypeScript
 - Includes common Svelte utilities and components
 
-### Astro
+### [Astro](astro/README.md)
 - Astro-based static site generator
 - Supports multiple UI frameworks
 - Includes content collections setup

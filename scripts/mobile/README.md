@@ -1,10 +1,21 @@
 # Mobile Project Templates
 
-This directory contains templates for various mobile application frameworks and technologies.
+This directory contains templates for various mobile application frameworks and technologies. See the [main project documentation](../../README.md) for general information about the CLI tool.
 
 ## Available Templates
 
-### React Native
+### [Flutter](flutter/README.md)
+- Cross-platform mobile application
+- Feature-based architecture
+- BLoC pattern for state management
+- Clean code organization
+- Error handling with custom failures
+- Testing with mockito
+- Dependency injection with get_it
+- HTTP client with dio
+- Local storage with shared_preferences
+
+### [React Native](reactnative/README.md)
 - Cross-platform mobile application
 - TypeScript support
 - Navigation setup
@@ -12,15 +23,7 @@ This directory contains templates for various mobile application frameworks and 
 - Native module integration
 - Testing environment
 
-### Flutter
-- Cross-platform mobile application
-- Material Design components
-- State management setup
-- Platform-specific code support
-- Testing framework
-- CI/CD configuration
-
-### Ionic
+### [Ionic](ionic/README.md)
 - Hybrid mobile application
 - Angular/React/Vue support
 - Capacitor integration
@@ -33,32 +36,31 @@ This directory contains templates for various mobile application frameworks and 
 Each template follows a consistent structure:
 ```
 template-name/
-├── src/              # Source code
-├── assets/           # Static assets
-├── tests/            # Test files
-├── config/           # Configuration files
-└── README.md         # Template-specific documentation
+├── templates/        # Template files for code generation
+├── README.md         # Template-specific documentation
+└── createProject.js  # Project generation script
 ```
 
 ## Features
 
 All templates include:
 - Cross-platform support
-- Native functionality
-- UI component library
-- State management
-- Navigation system
-- Testing framework
+- State management setup
+- Project structure setup
+- Testing configuration
 - Development tools
 - Build configuration
 
 ## Usage
 
-These templates are used by the `createMobileProject.js` script to generate new mobile projects. The script will:
-1. Copy the selected template
-2. Install dependencies
-3. Configure the project
-4. Set up initial development environment
+These templates are used by the CLI to generate new mobile projects. The process:
+1. Select a mobile technology (Flutter, React Native, or Ionic)
+2. Provide a project name
+3. The appropriate script will:
+   - Create a new project
+   - Set up the project structure
+   - Add necessary dependencies
+   - Configure the development environment
 
 ## Platform Support
 
@@ -67,19 +69,18 @@ Each template supports:
 - Android development
 - Platform-specific features
 - Native module integration
-- Device capabilities
-- App store deployment
+- Development tools integration
 
 ## Best Practices
 
-- Follow platform-specific guidelines
-- Implement responsive design
-- Optimize performance
-- Handle offline capabilities
-- Implement proper error handling
-- Maintain clear documentation
-- Regular updates for new OS versions
-- Follow framework-specific best practices
+Each template follows these best practices:
+- Clear project structure
+- Proper code organization
+- State management patterns
+- Error handling
+- Testing setup
+- Documentation
+- Development workflow
 
 ## Contributing
 

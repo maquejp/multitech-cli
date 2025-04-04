@@ -1,10 +1,10 @@
 # Backend Project Templates
 
-This directory contains templates for various backend frameworks and technologies.
+This directory contains templates for various backend frameworks and technologies. See the [main project documentation](../../README.md) for general information about the CLI tool.
 
 ## Available Templates
 
-### Express.js
+### [Express.js](express/README.md)
 - Node.js backend with Express framework
 - TypeScript support
 - RESTful API structure
@@ -12,7 +12,7 @@ This directory contains templates for various backend frameworks and technologie
 - Database integration ready
 - Authentication boilerplate
 
-### Spring Boot
+### [Spring Boot](springboot/README.md)
 - Java-based Spring Boot application
 - RESTful API structure
 - Database integration with JPA
@@ -20,7 +20,7 @@ This directory contains templates for various backend frameworks and technologie
 - Swagger/OpenAPI documentation
 - Testing setup with JUnit
 
-### API Platform
+### [API Platform](apiplatform/README.md)
 - Symfony-based API Platform setup
 - GraphQL and REST support
 - Doctrine ORM integration

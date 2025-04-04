@@ -1,10 +1,10 @@
 # Database Project Templates
 
-This directory contains templates for various database technologies and configurations.
+This directory contains templates for various database technologies and configurations. See the [main project documentation](../../README.md) for general information about the CLI tool.
 
 ## Available Templates
 
-### PostgreSQL
+### [PostgreSQL](postgresql/README.md)
 - Relational database setup
 - Migration system
 - Backup configuration
@@ -12,7 +12,7 @@ This directory contains templates for various database technologies and configur
 - Performance optimization
 - Security settings
 
-### MariaDB
+### [MariaDB](mariadb/README.md)
 - MySQL-compatible database
 - Migration tools
 - Backup procedures
@@ -20,7 +20,7 @@ This directory contains templates for various database technologies and configur
 - Performance tuning
 - Security configuration
 
-### MongoDB
+### [MongoDB](mongodb/README.md)
 - NoSQL database setup
 - Document structure
 - Index configuration
@@ -28,7 +28,7 @@ This directory contains templates for various database technologies and configur
 - Backup procedures
 - Security settings
 
-### Oracle
+### [Oracle](oracle/README.md)
 - Enterprise-grade database
 - PL/SQL setup
 - Migration tools

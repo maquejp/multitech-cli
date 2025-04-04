@@ -5,7 +5,7 @@ This script helps you create a new Flutter project with a clean architecture fol
 ## Overview
 
 The Flutter project generator creates a new Flutter application with:
-- A clean architecture folder structure following best practices
+- A feature-based architecture for better organization and maintainability
 - Essential dependencies pre-configured
 - Basic app setup with Material Design
 - Common utilities and helpers
@@ -21,63 +21,63 @@ cli create mobile --technology flutter --name YourProjectName
 
 ## Project Structure
 
-The generated project follows a clean architecture approach with the following structure:
+The generated project follows a feature-based architecture with the following structure:
 
 ```
-├── lib/              # Main application code
-│   ├── core/        # Core functionality and utilities
-│   ├── features/    # Feature-specific code organized by domain
-│   └── shared/      # Shared widgets, utilities, and services
-├── test/            # Test files mirroring the lib structure
-└── assets/          # Static assets like images and fonts
+├── lib/                    # Main application code
+│   ├── core/              # Core functionality and utilities
+│   │   ├── errors/        # Error handling and failures
+│   │   └── usecases/      # Base usecase definitions
+│   ├── data/              # Data layer
+│   │   ├── models/        # Data models
+│   │   ├── repositories/  # Repository implementations
+│   │   └── sources/       # Data sources (remote, local)
+│   ├── domain/            # Domain layer
+│   │   ├── entities/      # Business entities
+│   │   ├── repositories/  # Repository interfaces
+│   │   └── usecases/      # Business logic usecases
+│   └── presentation/      # Presentation layer
+│       └── bloc/          # BLoC state management
+├── test/                  # Test files mirroring the lib structure
+└── assets/               # Static assets (images, icons, fonts)
+    ├── images/          # Image assets
+    ├── icons/           # Icon assets
+    └── fonts/           # Font files
 ```
 
 ### Directory Details
 
 - **lib/**: The main directory containing all Dart code for the application.
-- **lib/core/**: Contains core functionality and utilities used throughout the app, such as constants, errors, and network information.
-- **lib/features/**: Contains feature-specific code organized by domain. Each feature is self-contained with its own models, repositories, and UI components.
-- **lib/shared/**: Contains shared widgets, utilities, and services that are used across multiple features.
-- **test/**: Contains test files for the application. Tests are organized to mirror the structure of the lib directory.
-- **assets/**: Contains static assets like images, fonts, and other resources used in the application.
+  - **core/**: Contains core functionality, error handling, and base classes.
+  - **data/**: Implements the data layer with models, repositories, and data sources.
+  - **domain/**: Contains business logic, entities, and repository interfaces.
+  - **presentation/**: Contains UI components and state management.
+- **test/**: Contains test files for the application.
+- **assets/**: Contains static assets organized by type.
 
 ## Features
 
-- **Clean Architecture**: Separation of concerns with clear boundaries between layers
-- **Feature-First Organization**: Code organized by feature rather than technical function
-- **Cross-Platform**: Support for iOS, Android, Web, and Desktop platforms
-- **Development Tools**: Hot reload and development server
-- **Code Quality**: Linting and formatting configuration for consistent code style
+- **Feature-Based Architecture**: Clear separation of concerns with data, domain, and presentation layers
+- **BLoC Pattern**: State management using the BLoC (Business Logic Component) pattern
+- **Clean Code**: Well-organized codebase with clear dependencies
+- **Error Handling**: Centralized error handling with custom failures
+- **Cross-Platform**: Support for iOS and Android platforms
+- **Development Tools**: Hot reload and debugging support
 
 ## Dependencies
 
-The project includes essential Flutter dependencies for a robust application:
+The project includes essential Flutter dependencies:
 
 ### Core Dependencies
-- `flutter` - The Flutter framework
-- `dart` - The Dart programming language
+- `flutter_bloc`: ^8.1.3 - BLoC pattern implementation
+- `equatable`: ^2.0.5 - Value equality
+- `get_it`: ^7.6.0 - Service locator
+- `dio`: ^5.3.2 - HTTP client
+- `dartz`: ^0.10.1 - Functional programming
+- `shared_preferences`: ^2.2.0 - Local storage
 
-### State Management
-- `provider` - Simple state management solution
-- `flutter_bloc` - BLoC pattern implementation for state management
-
-### Navigation
-- `go_router` - Declarative routing solution
-
-### UI and Animation
-- `flutter_svg` - SVG rendering
-- `cached_network_image` - Image caching
-- `shimmer` - Loading effects
-
-### Network and Data
-- `dio` - HTTP client
-- `json_serializable` - JSON serialization
-- `shared_preferences` - Local storage
-
-### Utilities
-- `intl` - Internationalization and localization
-- `logger` - Logging utility
-- `flutter_dotenv` - Environment variable management
+### Development Dependencies
+- `mockito`: ^5.4.2 - Mocking for tests
 
 ## Development
 
@@ -104,7 +104,6 @@ flutter test
 # Build for release
 flutter build apk  # For Android
 flutter build ios  # For iOS
-flutter build web  # For Web
 ```
 
 ## Contributing
