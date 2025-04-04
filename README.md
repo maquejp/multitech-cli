@@ -48,29 +48,61 @@ Categories:
 
 ## Project Structure
 
+The project follows this directory structure:
+
 ```
 project-cli/
 ├── cli.js              # Main CLI entry point
 ├── scripts/            # Project generation scripts
-│   ├── web/            # [Web project templates](scripts/web/README.md)
-│   │   ├── react/      # [React project template](scripts/web/react/README.md)
-│   │   ├── vue/        # [Vue project template](scripts/web/vue/README.md)
-│   │   ├── svelte/     # [Svelte project template](scripts/web/svelte/README.md)
-│   │   └── astro/      # [Astro project template](scripts/web/astro/README.md)
-│   ├── backend/        # [Backend project templates](scripts/backend/README.md)
-│   │   ├── node/       # [Express.js project template](scripts/backend/express/README.md)
+│   ├── web/            # Web project templates
+│   │   ├── react/      # React project template
+│   │   ├── vue/        # Vue project template
+│   │   ├── svelte/     # Svelte project template
+│   │   └── astro/      # Astro project template
+│   ├── backend/        # Backend project templates
+│   │   ├── node/       # Node.js project template
 │   │   ├── python/     # Python project template
 │   │   └── go/         # Go project template
-│   ├── mobile/         # [Mobile project templates](scripts/mobile/README.md)
-│   │   ├── flutter/    # [Flutter project template](scripts/mobile/flutter/README.md)
+│   ├── mobile/         # Mobile project templates
+│   │   ├── flutter/    # Flutter project template
 │   │   ├── reactnative/# React Native project template
-│   │   └── ionic/      # [Ionic project template](scripts/mobile/ionic/README.md)
-│   └── database/       # [Database project templates](scripts/database/README.md)
-│       ├── mongodb/    # [MongoDB project template](scripts/database/mongodb/README.md)
-│       ├── postgresql/ # [PostgreSQL project template](scripts/database/postgresql/README.md)
-│       └── mysql/      # [MariaDB project template](scripts/database/mariadb/README.md)
+│   │   └── ionic/      # Ionic project template
+│   └── database/       # Database project templates
+│       ├── mongodb/    # MongoDB project template
+│       ├── postgresql/ # PostgreSQL project template
+│       └── mysql/      # MariaDB project template
 └── package.json        # Project dependencies and metadata
 ```
+
+### Documentation Structure
+
+Each component has its own documentation:
+
+- **Web Templates**:
+  - [Overview](scripts/web/README.md)
+    - [React](scripts/web/react/README.md)
+    - [Vue](scripts/web/vue/README.md)
+    - [Svelte](scripts/web/svelte/README.md)
+    - [Astro](scripts/web/astro/README.md)
+
+- **Backend Templates**:
+  - [Overview](scripts/backend/README.md)
+    - [Express.js](scripts/backend/express/README.md)
+    - [Spring Boot](scripts/backend/springboot/README.md)
+    - [API Platform](scripts/backend/apiplatform/README.md)
+
+- **Mobile Templates**:
+  - [Overview](scripts/mobile/README.md)
+    - [Flutter](scripts/mobile/flutter/README.md)
+    - [React Native](scripts/mobile/reactnative/README.md)
+    - [Ionic](scripts/mobile/ionic/README.md)
+
+- **Database Templates**:
+  - [Overview](scripts/database/README.md)
+    - [MongoDB](scripts/database/mongodb/README.md)
+    - [PostgreSQL](scripts/database/postgresql/README.md)
+    - [MariaDB](scripts/database/mariadb/README.md)
+    - [Oracle](scripts/database/oracle/README.md)
 
 ## Development
 
