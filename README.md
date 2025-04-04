@@ -1,6 +1,6 @@
 # 🚀 Project CLI
 
-[![npm version](https://badge.fury.io/js/%40maquestiaux%2Fproject-cli.svg)](https://badge.fury.io/js/%40maquestiaux%2Fproject-cli)
+[![npm version](https://badge.fury.io/js/%maquejp%2Fproject-cli.svg)](https://badge.fury.io/js/%maquejp%2Fproject-cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/maquejp/multitech-cli/graphs/commit-activity)

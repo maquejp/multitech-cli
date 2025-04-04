@@ -7,7 +7,7 @@
         "email": "maquejp@gmail.com",
         "url": "https://github.com/maquejp/multi-techs-utility"
     },
-    "version": "1.0.0",
+    "version": "0.0.0",
     "type": "module",
     "bin": {
         "project-cli": "./cli.js"
