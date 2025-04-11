@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.15](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.14...v0.1.0-alpha.15) (2025-04-11)
+
+
+### Features
+
+* add Angular CLI version check and improve console output with chalk ([3158b3a](https://github.com/maquejp/multitech-cli/commit/3158b3a8896a007eff5479a31719500efc1c0194))
+
 ## [0.1.0-alpha.14](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.13...v0.1.0-alpha.14) (2025-04-11)
 
 
