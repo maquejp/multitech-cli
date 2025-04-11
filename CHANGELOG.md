@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.16](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.15...v0.1.0-alpha.16) (2025-04-11)
+
+
+### Features
+
+* add Angular project creation with name validation ([9f15bd1](https://github.com/maquejp/multitech-cli/commit/9f15bd17ac616eae2e4abeb3ae59955e30f5d105))
+
 ## [0.1.0-alpha.15](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.14...v0.1.0-alpha.15) (2025-04-11)
 
 
