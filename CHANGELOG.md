@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.12](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.11...v0.1.0-alpha.12) (2025-04-11)
+
+
+### Features
+
+* add select category and improve spacing between icons and text in menus ([b2152f8](https://github.com/maquejp/multitech-cli/commit/b2152f8c4d0974cfec14035bc0850ba466578198))
+
 ## [0.1.0-alpha.11](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.10...v0.1.0-alpha.11) (2025-04-11)
 
 
