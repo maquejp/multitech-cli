@@ -52,6 +52,7 @@ export function createAngularProject(projectName) {
             cwd: process.cwd()
         });
         console.log(chalk.green(`✅ Angular project '${projectName}' created successfully`));
+        process.exit(0); // Exit the CLI after successful project creation
     } catch (error) {
         console.error(chalk.red('❌ Failed to create Angular project:'), chalk.red(error.message));
         process.exit(1);
