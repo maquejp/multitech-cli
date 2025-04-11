@@ -28,7 +28,33 @@ const logo = chalk.cyan(figlet.textSync('MultiTech CLI', {
 console.log(logo);
 console.log(chalk.green(`Version: ${chalk.bold(packageJson.version)}  | Author: ${chalk.bold(packageJson.author.name)}`));
 console.log(chalk.yellow(`\n${chalk.bold(packageJson.description)}`));
-console.log(chalk.magenta('\nMore features coming soon! 🎉\n'));
+console.log(chalk.magenta('More features coming soon! 🎉\n'));
+
+// Category selection function
+async function selectCategory() {
+  const { category } = await inquirer.prompt([
+    {
+      type: 'list',
+      name: 'category',
+      message: 'Select a project category:',
+      choices: [
+        { name: '🌐  Web Development', value: 'web' },
+        { name: '⚙️   Backend Development', value: 'backend' },
+        { name: '📱  Mobile Development', value: 'mobile' },
+        { name: '🗄️   Database', value: 'database' },
+        { name: '↩️   Back to main menu', value: 'back' }
+      ]
+    }
+  ]);
+
+  if (category === 'back') {
+    return null;
+  }
+
+  console.log(chalk.cyan(`\nSelected category: ${chalk.bold(category)}`));
+  // TODO: Implement technology selection based on category
+  return category;
+}
 
 // Main menu function
 async function showMainMenu() {
@@ -38,9 +64,9 @@ async function showMainMenu() {
       name: 'action',
       message: 'What would you like to do?',
       choices: [
-        { name: '🚀 Create a new project', value: 'create' },
-        { name: '❓ Help', value: 'help' },
-        { name: '👋 Quit', value: 'quit' }
+        { name: '🚀  Create a new project', value: 'create' },
+        { name: '❓  Help', value: 'help' },
+        { name: '👋  Quit', value: 'quit' }
       ]
     }
   ]);
@@ -48,7 +74,11 @@ async function showMainMenu() {
   switch (action) {
     case 'create':
       console.log(chalk.cyan('\nCreating a new project...'));
-      // TODO: Implement project creation logic
+      const category = await selectCategory();
+      if (category) {
+        // TODO: Continue with technology selection
+        console.log(chalk.yellow('\nTechnology selection coming soon!'));
+      }
       break;
     case 'help':
       console.log(chalk.cyan('\nHelp Information:'));
