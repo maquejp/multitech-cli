@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.13](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.12...v0.1.0-alpha.13) (2025-04-11)
+
+
+### Features
+
+* add technology selection based on category ([6ca7140](https://github.com/maquejp/multitech-cli/commit/6ca71404650540f467f847b672253df8d9796fc2))
+
 ## [0.1.0-alpha.12](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.11...v0.1.0-alpha.12) (2025-04-11)
 
 
