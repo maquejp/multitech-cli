@@ -41,12 +41,6 @@
     "development",
     "automation"
   ],
-  "dependencies": {
-    "chalk": "^5.4.1",
-    "extract-zip": "^2.0.1",
-    "figlet": "^1.8.0",
-    "inquirer": "^8.2.0"
-  },
   "devDependencies": {
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
