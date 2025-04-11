@@ -10,7 +10,7 @@
   "version": "0.1.0-alpha.2",
   "type": "module",
   "bin": {
-    "multitech-cli": "./cli.js"
+    "multitech-cli": "cli.js"
   },
   "scripts": {
     "start": "node cli.js",
@@ -28,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/maquejp/multitech-cli.git"
+    "url": "git+https://github.com/maquejp/multitech-cli.git"
   },
   "homepage": "https://github.com/maquejp/multitech-cli#readme",
   "bugs": {
