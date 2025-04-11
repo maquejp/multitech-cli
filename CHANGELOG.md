@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.14](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.13...v0.1.0-alpha.14) (2025-04-11)
+
+
+### Features
+
+* add dummy project templates for all technologies ([266c683](https://github.com/maquejp/multitech-cli/commit/266c6833fe415b11202ed064d0eda78cf40e02de))
+
 ## [0.1.0-alpha.13](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.12...v0.1.0-alpha.13) (2025-04-11)
 
 
