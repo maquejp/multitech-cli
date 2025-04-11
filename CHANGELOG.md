@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.6](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.5...v0.1.0-alpha.6) (2025-04-11)
+
+
+### Bug Fixes
+
+* :bug: Restart from 0 as package does not work from NPMJS ([3dfa546](https://github.com/maquejp/multitech-cli/commit/3dfa54679fb81363885b5b763b0baea789316583))
+
 ## [0.1.0-alpha.5](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.4...v0.1.0-alpha.5) (2025-04-11)
 
 
