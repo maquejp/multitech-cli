@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.11](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.10...v0.1.0-alpha.11) (2025-04-11)
+
+
+### Features
+
+* add interactive menu with create, help, and quit options ([f94d250](https://github.com/maquejp/multitech-cli/commit/f94d250b97e045c27b0ba47a9691e8c78e5071ae))
+
 ## [0.1.0-alpha.10](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.9...v0.1.0-alpha.10) (2025-04-11)
 
 ## [0.1.0-alpha.9](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.8...v0.1.0-alpha.9) (2025-04-11)
