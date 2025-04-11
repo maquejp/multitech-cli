@@ -11,6 +11,7 @@ import { dirname, join } from 'path';
 import chalk from 'chalk';
 import figlet from 'figlet';
 import inquirer from 'inquirer';
+import { technologies } from './templates/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -57,6 +58,24 @@ const technologyOptions = {
   ]
 };
 
+// Project name prompt
+async function promptProjectName() {
+  const { projectName } = await inquirer.prompt([
+    {
+      type: 'input',
+      name: 'projectName',
+      message: 'Enter a name for your project:',
+      validate: (input) => {
+        if (!input) {
+          return 'Project name cannot be empty';
+        }
+        return true;
+      }
+    }
+  ]);
+  return projectName;
+}
+
 // Technology selection function
 async function selectTechnology(category) {
   const { technology } = await inquirer.prompt([
@@ -76,7 +95,6 @@ async function selectTechnology(category) {
   }
 
   console.log(chalk.cyan(`\nSelected technology: ${chalk.bold(technology)}`));
-  // TODO: Implement project creation based on category and technology
   return technology;
 }
 
@@ -127,7 +145,12 @@ async function showMainMenu() {
       if (category) {
         const technology = await selectTechnology(category);
         if (technology) {
-          console.log(chalk.yellow('\nProject creation coming soon!'));
+          const projectName = await promptProjectName();
+          console.log(chalk.cyan(`\nCreating a ${category} project with ${technology}...`));
+
+          // Call the appropriate template function
+          const createProject = technologies[category][technology];
+          createProject(projectName);
         }
       }
       break;
