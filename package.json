@@ -14,9 +14,22 @@
   },
   "scripts": {
     "start": "node cli.js",
+    "release": "standard-version && git push --follow-tags && npm publish --access=public",
+    "release:alpha": "standard-version --prerelease alpha && git push --follow-tags && npm publish --tag alpha --access=public",
+    "release:preminor": "standard-version --prerelease preminor && git push --follow-tags && npm publish --tag alpha --access=public",
+    "release:premajor": "standard-version --prerelease premajor && git push --follow-tags && npm publish --tag alpha --access=public",
+    "release:patch": "standard-version --release-as patch && git push --follow-tags && npm publish --access=public",
+    "release:minor": "standard-version --release-as minor && git push --follow-tags && npm publish --access=public",
+    "release:major": "standard-version --release-as major && git push --follow-tags && npm publish --access=public",
     "test": "echo 'No tests yet' && exit 0",
     "prepublishOnly": "npm test",
-    "postinstall": "chmod +x cli.js"
+    "postinstall": "chmod +x cli.js",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "repository": {
     "type": "git",
@@ -38,5 +51,11 @@
     "extract-zip": "^2.0.1",
     "figlet": "^1.8.0",
     "inquirer": "^8.2.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "husky": "^9.1.7",
+    "standard-version": "^9.5.0"
   }
 }
