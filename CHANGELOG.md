@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.9](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.8...v0.1.0-alpha.9) (2025-04-11)
+
+
+### Features
+
+* some changes ([70a04db](https://github.com/maquejp/multitech-cli/commit/70a04db0628d498b2ea9729389fe2e2d2301611e))
+
 ## [0.1.0-alpha.8](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.7...v0.1.0-alpha.8) (2025-04-11)
 
 
