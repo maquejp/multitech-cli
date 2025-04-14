@@ -41,7 +41,7 @@ export function createAstroProject(projectName) {
     // Create Astro project
     try {
         console.log(chalk.yellow('📦 Creating new Astro project...'));
-        execSync(`npm create astro@latest ${projectName} -- --template minimal --install --typescript strict --git --yes`, { stdio: 'inherit' });
+        execSync(`npm create astro@latest ${projectName} -- --template basics --install --typescript strict --git --yes`, { stdio: 'inherit' });
 
         // Navigate to project directory
         process.chdir(projectName);
