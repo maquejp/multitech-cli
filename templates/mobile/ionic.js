@@ -57,7 +57,7 @@ export function createIonicProject(projectName) {
     // Create Ionic project
     try {
         console.log(chalk.yellow('📦 Creating new Ionic project...'));
-        execSync(`ionic start ${projectName} sidemenu --type=angular --capacitor --no-git --no-deps`, { stdio: 'inherit' });
+        execSync(`ionic start ${projectName} sidemenu --type=angular --capacitor --no-git --no-interactive`, { stdio: 'inherit' });
 
         // Navigate to project directory
         process.chdir(projectName);
