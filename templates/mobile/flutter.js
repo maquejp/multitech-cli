@@ -42,7 +42,10 @@ export function createFlutterProject(projectName) {
     // Create Flutter project
     try {
         console.log(chalk.yellow('📦 Creating new Flutter project...'));
-        execSync(`flutter create --org com.example --platforms=android,ios,web --project-name ${projectName} .`, { stdio: 'inherit' });
+        execSync(`flutter create --org com.example --platforms=android,ios,web ${projectName}`, { stdio: 'inherit' });
+
+        // Navigate to project directory
+        process.chdir(projectName);
 
         console.log(chalk.green(`✅ Flutter project "${projectName}" created successfully!`));
         console.log(chalk.green(`📂 Project location: ${process.cwd()}`));
