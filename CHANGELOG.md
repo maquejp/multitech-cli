@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.27](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.26...v0.1.0-alpha.27) (2025-04-14)
+
+
+### Features
+
+* implement Flutter project template with multi-platform support ([8c8293e](https://github.com/maquejp/multitech-cli/commit/8c8293e72dc0b14418c65d26f68306ed810401e6))
+
 ## [0.1.0-alpha.26](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.25...v0.1.0-alpha.26) (2025-04-14)
 
 ## [0.1.0-alpha.25](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.24...v0.1.0-alpha.25) (2025-04-14)
