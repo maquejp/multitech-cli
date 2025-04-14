@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.24](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.23...v0.1.0-alpha.24) (2025-04-14)
+
+
+### Features
+
+* implement Ionic project template with Angular and Capacitor support ([8cd60e3](https://github.com/maquejp/multitech-cli/commit/8cd60e3b87ecfeaea9c8fd0c928ad15d20af9ee0))
+
 ## [0.1.0-alpha.23](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.22...v0.1.0-alpha.23) (2025-04-14)
 
 ## [0.1.0-alpha.22](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.21...v0.1.0-alpha.22) (2025-04-14)
