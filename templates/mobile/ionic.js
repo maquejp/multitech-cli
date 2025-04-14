@@ -20,6 +20,22 @@ export function createIonicProject(projectName) {
         process.exit(1);
     }
 
+    // Check if Ionic CLI is installed
+    try {
+        execSync('ionic --version', { stdio: 'ignore' });
+        console.log(chalk.green('✅ Ionic CLI is installed'));
+    } catch (error) {
+        console.log(chalk.yellow('⚠️ Installing Ionic CLI globally...'));
+        try {
+            execSync('npm install -g @ionic/cli', { stdio: 'inherit' });
+            console.log(chalk.green('✅ Ionic CLI installed successfully'));
+        } catch (error) {
+            console.error(chalk.red('❌ Failed to install Ionic CLI. Please install it manually:'));
+            console.error(chalk.red('   npm install -g @ionic/cli'));
+            process.exit(1);
+        }
+    }
+
     // Validate project name
     const projectNameRegex = /^[a-z][a-z0-9-]*[a-z0-9]$/;
     const reservedWords = ['ionic', 'angular', 'react', 'vue', 'node', 'npm', 'yarn', 'package', 'module', 'test', 'build', 'dev', 'prod'];
@@ -41,7 +57,7 @@ export function createIonicProject(projectName) {
     // Create Ionic project
     try {
         console.log(chalk.yellow('📦 Creating new Ionic project...'));
-        execSync(`npx @ionic/cli@latest start ${projectName} tabs --type=angular --capacitor --no-interactive --standalone --no-git`, { stdio: 'inherit' });
+        execSync(`ionic start ${projectName} sidemenu --type=angular --capacitor --no-git --no-deps`, { stdio: 'inherit' });
 
         // Navigate to project directory
         process.chdir(projectName);
@@ -53,15 +69,15 @@ export function createIonicProject(projectName) {
         console.log(chalk.green(`✅ Ionic project "${projectName}" created successfully!`));
         console.log(chalk.green(`📂 Project location: ${process.cwd()}`));
         console.log(chalk.green(`🚀 To start the development server:`));
-        console.log(chalk.green(`   npm start`));
+        console.log(chalk.green(`   ionic serve`));
         console.log(chalk.green(`\n📱 To run on specific platforms:`));
-        console.log(chalk.green(`   iOS: npm run ios`));
-        console.log(chalk.green(`   Android: npm run android`));
-        console.log(chalk.green(`   Web: npm run start`));
+        console.log(chalk.green(`   iOS: ionic capacitor run ios`));
+        console.log(chalk.green(`   Android: ionic capacitor run android`));
+        console.log(chalk.green(`   Web: ionic serve`));
         console.log(chalk.green(`\n🔧 Additional commands:`));
-        console.log(chalk.green(`   Build: npm run build`));
-        console.log(chalk.green(`   Test: npm run test`));
-        console.log(chalk.green(`   Lint: npm run lint`));
+        console.log(chalk.green(`   Build: ionic build`));
+        console.log(chalk.green(`   Test: ionic test`));
+        console.log(chalk.green(`   Add platform: ionic capacitor add [ios|android]`));
 
         process.exit(0);
     } catch (error) {
