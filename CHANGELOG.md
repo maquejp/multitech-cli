@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.20](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.19...v0.1.0-alpha.20) (2025-04-14)
+
+
+### Bug Fixes
+
+* update Vue project creation command with correct flags ([c6f6b9a](https://github.com/maquejp/multitech-cli/commit/c6f6b9ad23d4d7b9989f27fb7b13de4945f77aef))
+
 ## [0.1.0-alpha.19](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.18...v0.1.0-alpha.19) (2025-04-14)
 
 
