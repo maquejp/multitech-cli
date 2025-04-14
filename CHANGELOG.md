@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.21](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.20...v0.1.0-alpha.21) (2025-04-14)
+
+
+### Features
+
+* implement Astro project creation with TypeScript ([72a5b5b](https://github.com/maquejp/multitech-cli/commit/72a5b5bc3c542ac45ee9f5722aa5a0bda969d729))
+
 ## [0.1.0-alpha.20](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.19...v0.1.0-alpha.20) (2025-04-14)
 
 
