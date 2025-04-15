@@ -86,6 +86,34 @@ export function createSpringBootProject(projectName) {
                             fs.unlinkSync(zipFilePath);
                             console.log("Setting execute permissions for mvnw...");
                             execSync(`chmod +x ${projectPath}/mvnw`);
+
+                            // Create the controller package directory
+                            const controllerDir = path.join(
+                                projectPath,
+                                'src/main/java',
+                                ...groupId.split('.'),
+                                packageName,
+                                'controller'
+                            );
+                            fs.mkdirSync(controllerDir, { recursive: true });
+
+                            // Read the controller template
+                            const templateContent = fs.readFileSync(
+                                path.join(templatePath, 'WelcomeController.java.template'),
+                                'utf8'
+                            );
+
+                            // Replace placeholders in the template
+                            const controllerContent = templateContent
+                                .replace('{{packageName}}', `${groupId}.${packageName}.controller`)
+                                .replace('{{projectName}}', projectName);
+
+                            // Write the controller file
+                            fs.writeFileSync(
+                                path.join(controllerDir, 'WelcomeController.java'),
+                                controllerContent
+                            );
+
                             execSync(`./mvnw wrapper:wrapper`, {
                                 cwd: projectPath,
                                 stdio: "inherit",
@@ -97,6 +125,7 @@ export function createSpringBootProject(projectName) {
                             console.log(`2. export JAVA_HOME=(which java)`);
                             console.log("3. `./mvnw spring-boot:run` to start the server");
                             console.log("4. Go to http://localhost:8080");
+                            console.log("\nYou should see a welcome message with project information in JSON format");
                             resolve();
                         })
                         .catch((err) => {
