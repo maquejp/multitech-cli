@@ -55,6 +55,17 @@ export function createFlutterProject(projectName) {
         console.log(chalk.green(`   iOS: flutter run -d ios`));
         console.log(chalk.green(`   Android: flutter run -d android`));
         console.log(chalk.green(`   Web: flutter run -d chrome`));
+        console.log(chalk.green(`\n🎮 Emulator setup:`));
+        console.log(chalk.green(`   List available devices: flutter devices`));
+        console.log(chalk.green(`   iOS Simulator:`));
+        console.log(chalk.green(`     - Install Xcode from the Mac App Store`));
+        console.log(chalk.green(`     - Open Xcode > Preferences > Components > Install iOS Simulator`));
+        console.log(chalk.green(`     - Start simulator: open -a Simulator`));
+        console.log(chalk.green(`   Android Emulator:`));
+        console.log(chalk.green(`     - Install Android Studio`));
+        console.log(chalk.green(`     - Open Android Studio > Tools > Device Manager`));
+        console.log(chalk.green(`     - Create a new virtual device or use an existing one`));
+        console.log(chalk.green(`     - Start emulator from Android Studio or command line`));
         console.log(chalk.green(`\n🔧 Additional commands:`));
         console.log(chalk.green(`   Build: flutter build`));
         console.log(chalk.green(`   Test: flutter test`));
