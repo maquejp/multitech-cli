@@ -61,42 +61,7 @@ export function createSpringBootProject(projectName) {
         });
 
         console.log(`Downloading Spring Boot project from: ${springBootUrl}`);
-        https.get(springBootUrl, (response) => {
-            if (response.statusCode !== 200) {
-                throw new Error(
-                    `Failed to download Spring Boot project: ${response.statusMessage}`
-                );
-            }
-            const zipFilePath = path.join(projectPath, "project.zip");
-            const file = fs.createWriteStream(zipFilePath);
-            response.pipe(file);
-            console.log(`Downloaded Spring Boot project to: ${zipFilePath}`);
-            file.on("finish", async () => {
-                console.log("Unzipping project...");
-                extract(zipFilePath, { dir: projectPath }).then(() => {
-                    console.log("ZIP file extracted.");
-                    fs.unlinkSync(zipFilePath);
-                    console.log("Setting execute permissions for mvnw...");
-                    execSync(`chmod +x ${projectPath}/mvnw`);
-                    execSync(`./mvnw wrapper:wrapper`, {
-                        cwd: projectPath,
-                        stdio: "inherit",
-                        env: { ...process.env, JAVA_HOME: javaHome },
-                    });
 
-                    console.log("\nSpringboot project created successfully!");
-                    console.log("\nNext steps:");
-                    console.log(`1. cd ${projectName}`);
-                    console.log(`2. export JAVA_HOME=(which java)`);
-                    console.log("3. `./mvnw spring-boot:run` to start the server");
-                    console.log("4. Go to http://localhost:8080");
-                    process.exit(0); // Exit the CLI after successful project creation
-                });
-            });
-            file.on("error", (fileError) => {
-                throw new Error(`File write error: ${fileError}`);
-            });
-        });
     } catch (error) {
         console.error(`Error: Failed to create project directory ${projectName}`);
         console.error(error);
