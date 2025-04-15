@@ -11,7 +11,7 @@ import { dirname, join } from 'path';
 import chalk from 'chalk';
 import figlet from 'figlet';
 import inquirer from 'inquirer';
-import { technologies } from './templates/index.js';
+import { technologies } from './scripts/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
