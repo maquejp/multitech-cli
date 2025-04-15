@@ -53,7 +53,7 @@ export function createExpressProject(projectName) {
             { src: 'src/server.ts', dest: 'src/server.ts' },
             { src: '.env.example', dest: '.env' },
             { src: '.env.example', dest: '.env.example' },
-            { src: '.gitignore', dest: '.gitignore' },
+            { src: '.gitignore.example', dest: '.gitignore' },
             { src: 'package.json', dest: 'package.json' },
             { src: 'tsconfig.json', dest: 'tsconfig.json' },
             { src: 'README.md', dest: 'README.md' }
