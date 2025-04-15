@@ -62,6 +62,7 @@ export function createExpressProject(projectName) {
         console.log('\nNext steps:');
         console.log(`1. cd ${projectName}`);
         console.log('2. npm run dev');
+        process.exit(0); // Exit the CLI after successful project creation
 
     } catch (error) {
         console.error('Error creating Express.js project:', error);
