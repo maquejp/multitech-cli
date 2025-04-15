@@ -3,6 +3,12 @@
  * This is a dummy script that will be replaced with actual project generation logic
  */
 
+import { execSync } from 'child_process';
+import fs from 'fs';
+import path from 'path';
+import https from "https";
+import extract from "extract-zip";
+
 export function createSpringBootProject(projectName) {
     const projectPath = path.join(process.cwd(), projectName);
     const templatePath = path.join(__dirname, 'templates', 'springboot');
@@ -56,7 +62,7 @@ export function createSpringBootProject(projectName) {
             console.log(`Downloaded Spring Boot project to: ${zipFilePath}`);
             file.on("finish", async () => {
                 console.log("Unzipping project...");
-                unzip(zipFilePath, projectDir, (err) => {
+                extract(zipFilePath, projectDir, (err) => {
                     if (err) {
                         throw new Error(`Failed to unzip project: ${err}`);
                     }
