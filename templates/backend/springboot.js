@@ -60,24 +60,24 @@ export function createSpringBootProject(projectName) {
                     `Failed to download Spring Boot project: ${response.statusMessage}`
                 );
             }
-            const zipFilePath = path.join(projectDir, "project.zip");
+            const zipFilePath = path.join(projectPath, "project.zip");
             const file = fs.createWriteStream(zipFilePath);
             response.pipe(file);
             console.log(`Downloaded Spring Boot project to: ${zipFilePath}`);
             file.on("finish", async () => {
                 console.log("Unzipping project...");
-                extract(zipFilePath, projectDir, (err) => {
+                extract(zipFilePath, projectPath, (err) => {
                     if (err) {
                         throw new Error(`Failed to unzip project: ${err}`);
                     }
                     console.log("Project unzipped successfully");
-                    extract(zipFilePath, { dir: projectDir }).then(() => {
+                    extract(zipFilePath, { dir: projectPath }).then(() => {
                         console.log("ZIP file extracted.");
                         fs.unlinkSync(zipFilePath);
                         console.log("Setting execute permissions for mvnw...");
-                        execSync(`chmod +x ${projectDir}/mvnw`);
+                        execSync(`chmod +x ${projectPath}/mvnw`);
                         execSync(`./mvnw wrapper:wrapper`, {
-                            cwd: projectDir,
+                            cwd: projectPath,
                         });
                     });
                 });
