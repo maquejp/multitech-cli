@@ -30,8 +30,6 @@ export function createExpressProject(projectName) {
         console.log('Creating project structure...');
         const directories = [
             'src',
-            'src/routes',
-            'src/controllers'
         ];
 
         directories.forEach(dir => {
