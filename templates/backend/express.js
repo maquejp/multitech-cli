@@ -40,8 +40,7 @@ export function createExpressProject(projectName) {
 
         // Copy and process template files
         const templateFiles = [
-            { src: 'src/app.ts', dest: 'src/app.ts' },
-            { src: 'src/server.ts', dest: 'src/server.ts' },
+            { src: 'src/index.ts', dest: 'src/index.ts' },
             { src: '.env.example', dest: '.env' },
             { src: '.env.example', dest: '.env.example' },
             { src: '.gitignore.example', dest: '.gitignore' },
