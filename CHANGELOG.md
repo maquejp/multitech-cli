@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.47](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.46...v0.1.0-alpha.47) (2025-04-15)
+
+
+### Bug Fixes
+
+* extraction issue ([84daa30](https://github.com/maquejp/multitech-cli/commit/84daa3017e20cdf77c57293b26b1fb268b0f9e4d))
+
 ## [0.1.0-alpha.46](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.45...v0.1.0-alpha.46) (2025-04-15)
 
 
