@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.31](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.30...v0.1.0-alpha.31) (2025-04-15)
+
+
+### Bug Fixes
+
+* add missing export keyword ([286964d](https://github.com/maquejp/multitech-cli/commit/286964dfe7ba90ed32f042eea73ec914ec7b3d0b))
+
 ## [0.1.0-alpha.30](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.29...v0.1.0-alpha.30) (2025-04-15)
 
 
