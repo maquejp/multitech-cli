@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.33](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.32...v0.1.0-alpha.33) (2025-04-15)
+
+
+### Bug Fixes
+
+* create .env from .env.example instead of copying from template ([3d38ba5](https://github.com/maquejp/multitech-cli/commit/3d38ba5c51935a60497f21066f81c4a9e29a3cc0))
+
 ## [0.1.0-alpha.32](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.31...v0.1.0-alpha.32) (2025-04-15)
 
 
