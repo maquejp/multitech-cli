@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.32](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.31...v0.1.0-alpha.32) (2025-04-15)
+
+
+### Features
+
+* convert Express.js template to TypeScript ([8a1de1c](https://github.com/maquejp/multitech-cli/commit/8a1de1c4df283303eb362ce9b55b4b2e5b3f050b))
+
 ## [0.1.0-alpha.31](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.30...v0.1.0-alpha.31) (2025-04-15)
 
 
