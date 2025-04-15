@@ -6,8 +6,12 @@
 import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import https from "https";
 import extract from "extract-zip";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export function createSpringBootProject(projectName) {
     const projectPath = path.join(process.cwd(), projectName);
