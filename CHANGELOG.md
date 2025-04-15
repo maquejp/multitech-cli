@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.30](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.29...v0.1.0-alpha.30) (2025-04-15)
+
+
+### Features
+
+* add Express.js backend template with simplified structure ([35d2c1d](https://github.com/maquejp/multitech-cli/commit/35d2c1de45281044bd7147d5c64d718f8d6427ea))
+* simplify Express.js template to focus on essentials ([7fe8224](https://github.com/maquejp/multitech-cli/commit/7fe822427b79f130dc0fe33d765a2ab91692c92e))
+
 ## [0.1.0-alpha.29](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.28...v0.1.0-alpha.29) (2025-04-15)
 
 ## [0.1.0-alpha.28](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.27...v0.1.0-alpha.28) (2025-04-15)
