@@ -26,15 +26,6 @@ export function createExpressProject(projectName) {
         fs.mkdirSync(projectPath);
         process.chdir(projectPath);
 
-        // Initialize npm project
-        console.log('Initializing npm project...');
-        execSync('npm init -y', { stdio: 'inherit' });
-
-        // Install dependencies
-        console.log('Installing dependencies...');
-        execSync('npm install express cors dotenv', { stdio: 'inherit' });
-        execSync('npm install --save-dev typescript @types/node @types/express @types/cors ts-node-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint prettier', { stdio: 'inherit' });
-
         // Create project structure
         console.log('Creating project structure...');
         const directories = [
@@ -65,12 +56,15 @@ export function createExpressProject(projectName) {
             fs.writeFileSync(path.join(projectPath, dest), content);
         });
 
+        // Install dependencies
+        console.log('Installing dependencies...');
+        execSync('npm install express cors dotenv', { stdio: 'inherit' });
+        execSync('npm install --save-dev typescript @types/node @types/express @types/cors ts-node-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint prettier', { stdio: 'inherit' });
+
         console.log('\nExpress.js project created successfully! 🚀');
         console.log('\nNext steps:');
         console.log(`1. cd ${projectName}`);
-        console.log('2. npm install');
-        console.log('3. cp .env.example .env');
-        console.log('4. npm run dev');
+        console.log('2. npm run dev');
 
     } catch (error) {
         console.error('Error creating Express.js project:', error);
