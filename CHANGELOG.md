@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.35](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.34...v0.1.0-alpha.35) (2025-04-15)
+
+
+### Bug Fixes
+
+* bug with the gitignore and the package.json which was overriden ([b30a342](https://github.com/maquejp/multitech-cli/commit/b30a342fb845b20e32db6326b0349126129d02e3))
+
 ## [0.1.0-alpha.34](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.33...v0.1.0-alpha.34) (2025-04-15)
 
 
