@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.28](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.27...v0.1.0-alpha.28) (2025-04-15)
+
+
+### Bug Fixes
+
+* create Flutter project in a new directory with project name ([d1ed45e](https://github.com/maquejp/multitech-cli/commit/d1ed45e7815a69155fe0b5d7dda48de379b33133))
+
 ## [0.1.0-alpha.27](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.26...v0.1.0-alpha.27) (2025-04-14)
 
 
