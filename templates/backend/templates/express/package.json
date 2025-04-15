@@ -2,6 +2,7 @@
     "name": "{{projectName}}",
     "version": "1.0.0",
     "description": "Express.js backend application",
+    "type": "module",
     "main": "src/server.js",
     "scripts": {
         "start": "node src/server.js",
