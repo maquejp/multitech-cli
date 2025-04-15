@@ -45,9 +45,9 @@ export function createExpressProject(projectName) {
             { src: '.env.example', dest: '.env' },
             { src: '.env.example', dest: '.env.example' },
             { src: '.gitignore.example', dest: '.gitignore' },
-            { src: 'package.json', dest: 'package.json' },
-            { src: 'tsconfig.json', dest: 'tsconfig.json' },
-            { src: 'README.md', dest: 'README.md' }
+            { src: 'package.json.example', dest: 'package.json' },
+            { src: 'tsconfig.json.example', dest: 'tsconfig.json' },
+            { src: 'README.md.example', dest: 'README.md' }
         ];
 
         templateFiles.forEach(({ src, dest }) => {
