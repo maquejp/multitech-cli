@@ -7,7 +7,7 @@ const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-function createExpressProject(projectName) {
+export function createExpressProject(projectName) {
     const projectPath = path.join(process.cwd(), projectName);
     const templatePath = path.join(__dirname, 'templates', 'express');
 
@@ -72,5 +72,3 @@ function createExpressProject(projectName) {
         process.exit(1);
     }
 }
-
-module.exports = createExpressProject; 
