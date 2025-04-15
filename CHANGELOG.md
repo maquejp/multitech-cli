@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.43](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.42...v0.1.0-alpha.43) (2025-04-15)
+
+
+### Bug Fixes
+
+* missing import ([8f0d0a1](https://github.com/maquejp/multitech-cli/commit/8f0d0a155d4262b2c57096a81a2acdb252612b20))
+
 ## [0.1.0-alpha.42](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.41...v0.1.0-alpha.42) (2025-04-15)
 
 
