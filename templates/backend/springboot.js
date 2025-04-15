@@ -66,19 +66,13 @@ export function createSpringBootProject(projectName) {
             console.log(`Downloaded Spring Boot project to: ${zipFilePath}`);
             file.on("finish", async () => {
                 console.log("Unzipping project...");
-                extract(zipFilePath, projectPath, (err) => {
-                    if (err) {
-                        throw new Error(`Failed to unzip project: ${err}`);
-                    }
+                extract(zipFilePath, { dir: projectPath }).then(() => {
                     console.log("Project unzipped successfully");
-                    extract(zipFilePath, { dir: projectPath }).then(() => {
-                        console.log("ZIP file extracted.");
-                        fs.unlinkSync(zipFilePath);
-                        console.log("Setting execute permissions for mvnw...");
-                        execSync(`chmod +x ${projectPath}/mvnw`);
-                        execSync(`./mvnw wrapper:wrapper`, {
-                            cwd: projectPath,
-                        });
+                    fs.unlinkSync(zipFilePath);
+                    console.log("Setting execute permissions for mvnw...");
+                    execSync(`chmod +x ${projectPath}/mvnw`);
+                    execSync(`./mvnw wrapper:wrapper`, {
+                        cwd: projectPath,
                     });
                 });
 
