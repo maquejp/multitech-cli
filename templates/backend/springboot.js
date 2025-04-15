@@ -23,6 +23,7 @@ const javaHome = path.dirname(path.dirname(javaPath));
 export function createSpringBootProject(projectName) {
     const projectPath = path.join(process.cwd(), projectName);
     const templatePath = path.join(__dirname, 'templates', 'springboot');
+    const zipFilePath = path.join(process.cwd(), `${projectName}.zip`);
 
     // Check if directory already exists
     if (fs.existsSync(projectPath)) {
@@ -61,6 +62,38 @@ export function createSpringBootProject(projectName) {
         });
 
         console.log(`Downloading Spring Boot project from: ${springBootUrl}`);
+
+        // Download the zip file
+        return new Promise((resolve, reject) => {
+            https.get(springBootUrl, (response) => {
+                if (response.statusCode !== 200) {
+                    reject(new Error(`Failed to download: ${response.statusCode} ${response.statusMessage}`));
+                    return;
+                }
+
+                const fileStream = fs.createWriteStream(zipFilePath);
+                response.pipe(fileStream);
+
+                fileStream.on('finish', () => {
+                    fileStream.close();
+                    console.log(`Download completed. Extracting to ${projectPath}...`);
+
+                    // Extract the zip file
+                    extract(zipFilePath, { dir: projectPath })
+                        .then(() => {
+                            console.log('Extraction completed successfully');
+                            // Clean up the zip file
+                            fs.unlinkSync(zipFilePath);
+                            resolve();
+                        })
+                        .catch((err) => {
+                            reject(new Error(`Failed to extract zip file: ${err.message}`));
+                        });
+                });
+            }).on('error', (err) => {
+                reject(new Error(`Failed to download: ${err.message}`));
+            });
+        });
 
     } catch (error) {
         console.error(`Error: Failed to create project directory ${projectName}`);
