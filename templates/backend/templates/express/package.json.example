@@ -1,17 +1,15 @@
 {
-    "name": "{{projectName}}",
-    "version": "1.0.0",
-    "description": "Express.js backend application",
-    "type": "module",
-    "main": "dist/server.js",
-    "scripts": {
-        "start": "node dist/server.js",
-        "dev": "ts-node-dev --respawn --loader ts-node/esm src/server.ts",
-        "build": "tsc",
-        "lint": "eslint . --ext .ts",
-        "format": "prettier --write \"src/**/*.ts\""
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC"
+  "name": "{{projectName}}",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev --respawn src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"    
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

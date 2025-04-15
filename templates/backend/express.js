@@ -58,8 +58,8 @@ export function createExpressProject(projectName) {
 
         // Install dependencies
         console.log('Installing dependencies...');
-        execSync('npm install express cors dotenv', { stdio: 'inherit' });
-        execSync('npm install --save-dev typescript @types/node @types/express @types/cors ts-node-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint prettier', { stdio: 'inherit' });
+        execSync('npm install express', { stdio: 'inherit' });
+        execSync('npm install --save-dev typescript @types/express ts-node-dev @types/node', { stdio: 'inherit' });
 
         console.log('\nExpress.js project created successfully! 🚀');
         console.log('\nNext steps:');
