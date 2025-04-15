@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "chalk": "^5.4.1",
+    "extract-zip": "^2.0.1",
     "figlet": "^1.8.0",
     "inquirer": "^12.5.2"
   }
