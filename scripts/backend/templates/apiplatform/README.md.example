@@ -1,0 +1,54 @@
+# {{projectName}}
+
+This is an API Platform project created with the MultiTech CLI.
+
+## Requirements
+
+- PHP 8.1 or higher
+- Composer
+- Symfony CLI (optional, but recommended)
+- MySQL 5.7+ or PostgreSQL 9.6+ (if you use the default database)
+
+## Installation
+
+1. Clone this repository
+2. Run `composer install`
+3. Copy `.env` to `.env.local` and adjust the values
+4. Run `php bin/console doctrine:database:create`
+5. Run `php bin/console doctrine:schema:create`
+
+## Usage
+
+### Development
+
+```bash
+# Start the Symfony development server
+symfony server:start
+
+# Or use PHP's built-in server
+php -S localhost:8000 -t public/
+```
+
+### API Documentation
+
+The API documentation is available at:
+- [API Platform UI](http://localhost:8000/api)
+- [Swagger UI](http://localhost:8000/api/docs.json)
+
+### Testing
+
+```bash
+# Run PHPUnit tests
+php bin/phpunit
+```
+
+## Features
+
+- [API Platform](https://api-platform.com/) for building API-first applications
+- [Symfony](https://symfony.com/) as the underlying framework
+- [Doctrine ORM](https://www.doctrine-project.org/projects/orm.html) for database access
+- [JWT Authentication](https://jwt.io/) for secure API access
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details. 
