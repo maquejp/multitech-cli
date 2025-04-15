@@ -22,10 +22,10 @@ This CLI tool helps developers quickly scaffold new projects across different ca
 
 | Category | Technologies | Documentation |
 |----------|--------------|---------------|
-| 🌐 [Web Applications](templates/web/README.md) | React, Vue, Svelte, Astro | [View](templates/web/README.md) |
-| 🔧 [Backend Services](templates/backend/README.md) | Node.js, Python, Go | [View](templates/backend/README.md) |
-| 📱 [Mobile Applications](templates/mobile/README.md) | Flutter, React Native, Ionic | [View](scritemplatests/mobile/README.md) |
-| 💾 [Database Projects](templates/database/README.md) | MongoDB, PostgreSQL, MySQL | [View](templates/database/README.md) |
+| 🌐 [Web Applications](scripts/web/README.md) | React, Vue, Svelte, Astro | [View](scripts/web/README.md) |
+| 🔧 [Backend Services](scripts/backend/README.md) | Node.js, Python, Go | [View](scripts/backend/README.md) |
+| 📱 [Mobile Applications](scripts/mobile/README.md) | Flutter, React Native, Ionic | [View](scripts/mobile/README.md) |
+| 💾 [Database Projects](scripts/database/README.md) | MongoDB, PostgreSQL, MySQL | [View](scripts/database/README.md) |
 
 ## 🚀 Installation
 
