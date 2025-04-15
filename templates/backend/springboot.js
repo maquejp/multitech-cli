@@ -13,6 +13,13 @@ import extract from "extract-zip";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const javaPath = execSync(
+    process.platform === "win32" ? "where java" : "which java"
+)
+    .toString()
+    .trim();
+const javaHome = path.dirname(path.dirname(javaPath));
+
 export function createSpringBootProject(projectName) {
     const projectPath = path.join(process.cwd(), projectName);
     const templatePath = path.join(__dirname, 'templates', 'springboot');
