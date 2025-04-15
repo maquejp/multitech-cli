@@ -33,7 +33,7 @@ export function createExpressProject(projectName) {
         // Install dependencies
         console.log('Installing dependencies...');
         execSync('npm install express cors dotenv', { stdio: 'inherit' });
-        execSync('npm install --save-dev nodemon', { stdio: 'inherit' });
+        execSync('npm install --save-dev typescript @types/node @types/express @types/cors ts-node-dev @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint prettier', { stdio: 'inherit' });
 
         // Create project structure
         console.log('Creating project structure...');
@@ -49,12 +49,13 @@ export function createExpressProject(projectName) {
 
         // Copy and process template files
         const templateFiles = [
-            { src: 'src/app.js', dest: 'src/app.js' },
-            { src: 'src/server.js', dest: 'src/server.js' },
+            { src: 'src/app.ts', dest: 'src/app.ts' },
+            { src: 'src/server.ts', dest: 'src/server.ts' },
             { src: '.env', dest: '.env' },
             { src: '.env.example', dest: '.env.example' },
             { src: '.gitignore', dest: '.gitignore' },
             { src: 'package.json', dest: 'package.json' },
+            { src: 'tsconfig.json', dest: 'tsconfig.json' },
             { src: 'README.md', dest: 'README.md' }
         ];
 

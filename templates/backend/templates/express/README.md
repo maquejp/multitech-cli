@@ -1,10 +1,11 @@
 # {{projectName}}
 
-Simple Express.js backend application.
+TypeScript Express.js backend application.
 
 ## Prerequisites
 
 - Node.js (v14 or higher)
+- TypeScript
 
 ## Setup Instructions
 
@@ -25,8 +26,17 @@ Simple Express.js backend application.
      ```
    - Production mode:
      ```bash
+     npm run build
      npm start
      ```
+
+## Available Scripts
+
+- `npm run dev`: Start the server in development mode with hot reload
+- `npm run build`: Build the TypeScript code
+- `npm start`: Start the server in production mode
+- `npm run lint`: Run ESLint
+- `npm run format`: Format code with Prettier
 
 ## Project Structure
 
@@ -34,6 +44,6 @@ Simple Express.js backend application.
 src/
   ├── controllers/ # Route controllers
   ├── routes/      # Route definitions
-  ├── app.js       # Express app setup
-  └── server.js    # Server entry point
+  ├── app.ts       # Express app setup
+  └── server.ts    # Server entry point
 ``` 
