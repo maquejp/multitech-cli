@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.48](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.47...v0.1.0-alpha.48) (2025-04-15)
+
+
+### Bug Fixes
+
+* missing javahome ([c6a912f](https://github.com/maquejp/multitech-cli/commit/c6a912f78b66adc0a2acbbc21ba7d3b50fbe0b59))
+
 ## [0.1.0-alpha.47](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.46...v0.1.0-alpha.47) (2025-04-15)
 
 
