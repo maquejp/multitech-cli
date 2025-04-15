@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.49](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.48...v0.1.0-alpha.49) (2025-04-15)
+
+
+### Features
+
+* implement Spring Boot project download and extraction ([ad90f25](https://github.com/maquejp/multitech-cli/commit/ad90f25236d30f1f710d05e5da8b99f2356be1cb))
+
+
+### Bug Fixes
+
+* issue downloading ([bd85648](https://github.com/maquejp/multitech-cli/commit/bd85648f6209cecaed5e1358326a29e3e913af21))
+
 ## [0.1.0-alpha.48](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.47...v0.1.0-alpha.48) (2025-04-15)
 
 
