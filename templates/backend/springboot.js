@@ -67,22 +67,27 @@ export function createSpringBootProject(projectName) {
             file.on("finish", async () => {
                 console.log("Unzipping project...");
                 extract(zipFilePath, { dir: projectPath }).then(() => {
-                    console.log("Project unzipped successfully");
+                    console.log("ZIP file extracted.");
                     fs.unlinkSync(zipFilePath);
                     console.log("Setting execute permissions for mvnw...");
                     execSync(`chmod +x ${projectPath}/mvnw`);
                     execSync(`./mvnw wrapper:wrapper`, {
                         cwd: projectPath,
+                        stdio: "inherit",
+                        env: { ...process.env, JAVA_HOME: javaHome },
                     });
-                });
 
-                console.log("\nSpringboot project created successfully!");
-                console.log("\nNext steps:");
-                console.log(`1. cd ${projectName}`);
-                console.log(`2. export JAVA_HOME=(which java)`);
-                console.log("3. `./mvnw spring-boot:run` to start the server");
-                console.log("4. Go to http://localhost:8080");
-                process.exit(0); // Exit the CLI after successful project creation
+                    console.log("\nSpringboot project created successfully!");
+                    console.log("\nNext steps:");
+                    console.log(`1. cd ${projectName}`);
+                    console.log(`2. export JAVA_HOME=(which java)`);
+                    console.log("3. `./mvnw spring-boot:run` to start the server");
+                    console.log("4. Go to http://localhost:8080");
+                    process.exit(0); // Exit the CLI after successful project creation
+                });
+            });
+            file.on("error", (fileError) => {
+                throw new Error(`File write error: ${fileError}`);
             });
         });
     } catch (error) {
