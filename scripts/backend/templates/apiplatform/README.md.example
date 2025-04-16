@@ -1,32 +1,31 @@
 # {{projectName}}
 
-This is an API Platform project created with the MultiTech CLI.
+This is an API Platform project created with the MultiTech CLI using Docker.
 
 ## Requirements
 
-- PHP 8.1 or higher
-- Composer
-- Symfony CLI (optional, but recommended)
-- MySQL 5.7+ or PostgreSQL 9.6+ (if you use the default database)
+- Docker
+- Docker Compose
 
 ## Installation
 
 1. Clone this repository
-2. Run `composer install`
-3. Copy `.env` to `.env.local` and adjust the values
-4. Run `php bin/console doctrine:database:create`
-5. Run `php bin/console doctrine:schema:create`
+2. Run `docker-compose up -d` to start the containers
+3. Access the API at http://localhost:8000
 
 ## Usage
 
 ### Development
 
 ```bash
-# Start the Symfony development server
-symfony server:start
+# Start the containers
+docker-compose up -d
 
-# Or use PHP's built-in server
-php -S localhost:8000 -t public/
+# Stop the containers
+docker-compose down
+
+# View logs
+docker-compose logs -f
 ```
 
 ### API Documentation
@@ -35,12 +34,14 @@ The API documentation is available at:
 - [API Platform UI](http://localhost:8000/api)
 - [Swagger UI](http://localhost:8000/api/docs.json)
 
-### Testing
+### Database
 
-```bash
-# Run PHPUnit tests
-php bin/phpunit
-```
+The MySQL database is accessible at:
+- Host: localhost
+- Port: 3306
+- Database: api
+- Username: api
+- Password: api
 
 ## Features
 
@@ -48,6 +49,7 @@ php bin/phpunit
 - [Symfony](https://symfony.com/) as the underlying framework
 - [Doctrine ORM](https://www.doctrine-project.org/projects/orm.html) for database access
 - [JWT Authentication](https://jwt.io/) for secure API access
+- Docker for easy setup and deployment
 
 ## License
 
