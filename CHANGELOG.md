@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.54](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.53...v0.1.0-alpha.54) (2025-04-16)
+
+
+### Features
+
+* **backend:** implement docker-based api-platform setup ([e9fdf28](https://github.com/maquejp/multitech-cli/commit/e9fdf28115ba141a00440eae5f756f56a0e6cc8c))
+
 ## [0.1.0-alpha.53](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.52...v0.1.0-alpha.53) (2025-04-16)
 
 
