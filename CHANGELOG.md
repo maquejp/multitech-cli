@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0-alpha.53](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.52...v0.1.0-alpha.53) (2025-04-16)
+
+
+### Features
+
+* **backend:** add composer check for api-platform script ([23de98c](https://github.com/maquejp/multitech-cli/commit/23de98ce11ab5394d1067c093e35cadf6a640630))
+
 ## [0.1.0-alpha.52](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.51...v0.1.0-alpha.52) (2025-04-15)
 
 ## [0.1.0-alpha.51](https://github.com/maquejp/multitech-cli/compare/v0.1.0-alpha.50...v0.1.0-alpha.51) (2025-04-15)
